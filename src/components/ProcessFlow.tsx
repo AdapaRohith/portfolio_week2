@@ -5,26 +5,26 @@ import { motion } from 'framer-motion'
 const steps = [
     {
         number: '01',
-        title: 'Identify friction',
-        description: 'Find the manual, repetitive tasks that slow your team down. Look for patterns.',
+        title: 'Identify Friction',
+        description: 'Our team audits your workflows to pinpoint repetitive, manual bottlenecks that drain productivity.',
         icon: '🔍',
     },
     {
         number: '02',
-        title: 'Map the system',
-        description: 'Understand the data flow, dependencies, and edge cases before writing any code.',
+        title: 'Map the System',
+        description: 'We chart every data flow, dependency, and edge case — so nothing is left to chance before development begins.',
         icon: '🗺️',
     },
     {
         number: '03',
-        title: 'Automate safely',
-        description: 'Build with guardrails. Test incrementally. Never ship black-box systems.',
+        title: 'Automate with Guardrails',
+        description: 'Solutions are built incrementally with fail-safes, monitoring, and human-in-the-loop checkpoints where needed.',
         icon: '🔧',
     },
     {
         number: '04',
-        title: 'Monitor & improve',
-        description: 'Track performance, catch failures early, and iterate based on real data.',
+        title: 'Monitor & Optimize',
+        description: 'Post-launch, we continuously track performance metrics and iterate based on real operational data.',
         icon: '📈',
     },
 ]
@@ -35,10 +35,10 @@ export default function ProcessFlow() {
             <div className="max-w-5xl mx-auto">
                 <div className="text-center mb-16">
                     <h2 className="text-3xl md:text-4xl font-semibold mb-4">
-                        How I approach <span className="gradient-text">automation problems</span>
+                        Our approach to <span className="gradient-text">automation</span>
                     </h2>
                     <p className="text-muted max-w-2xl mx-auto">
-                        A systematic process that reduces risk and delivers reliable systems.
+                        A proven, systematic methodology that minimizes risk and delivers reliable, production-ready systems.
                     </p>
                 </div>
 

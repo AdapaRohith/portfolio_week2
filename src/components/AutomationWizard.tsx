@@ -88,10 +88,10 @@ export default function AutomationWizard() {
             <div className="max-w-3xl mx-auto">
                 <div className="text-center mb-12">
                     <h2 className="text-3xl md:text-4xl font-semibold mb-4">
-                        Build your <span className="gradient-text">automation</span>
+                        Configure your <span className="gradient-text">automation</span>
                     </h2>
                     <p className="text-muted">
-                        Tell me about your workflow. I'll design the system.
+                        Describe your workflow requirements. Our team will architect the solution.
                     </p>
                 </div>
 
@@ -265,7 +265,7 @@ export default function AutomationWizard() {
                                     </div>
 
                                     <button className="w-full py-4 bg-accent hover:bg-accent-dim text-background font-medium rounded-lg transition-all">
-                                        Turn this into a real system →
+                                        Launch this project with AvlokAI →
                                     </button>
                                 </div>
                             )}
@@ -279,8 +279,8 @@ export default function AutomationWizard() {
                                 onClick={prevStep}
                                 disabled={step === 1}
                                 className={`px-6 py-2 rounded-lg transition-all ${step === 1
-                                        ? 'text-muted cursor-not-allowed'
-                                        : 'text-foreground hover:bg-card-hover'
+                                    ? 'text-muted cursor-not-allowed'
+                                    : 'text-foreground hover:bg-card-hover'
                                     }`}
                             >
                                 ← Back
@@ -289,8 +289,8 @@ export default function AutomationWizard() {
                                 onClick={nextStep}
                                 disabled={!canProceed()}
                                 className={`px-6 py-2 rounded-lg transition-all ${canProceed()
-                                        ? 'bg-accent text-background hover:bg-accent-dim'
-                                        : 'bg-muted/20 text-muted cursor-not-allowed'
+                                    ? 'bg-accent text-background hover:bg-accent-dim'
+                                    : 'bg-muted/20 text-muted cursor-not-allowed'
                                     }`}
                             >
                                 Continue →

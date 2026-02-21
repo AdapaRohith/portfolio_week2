@@ -9,19 +9,8 @@ interface HeroProps {
 
 export default function Hero({ onPrimaryCTA, onSecondaryCTA }: HeroProps) {
     return (
-        <section className="relative min-h-screen flex items-center justify-center px-6">
-            <div className="max-w-4xl mx-auto text-center z-10">
-                {/* Badge */}
-                <motion.div
-                    initial={{ opacity: 0, y: 20 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.5 }}
-                    className="inline-flex items-center gap-2 px-4 py-2 rounded-full glass-card text-sm text-muted mb-8"
-                >
-                    <span className="w-2 h-2 rounded-full bg-accent animate-pulse" />
-                    AI Automation Consultant
-                </motion.div>
-
+        <section className="relative min-h-screen flex items-center justify-center px-6 pointer-events-none">
+            <div className="max-w-4xl mx-auto text-center z-10 pointer-events-auto">
                 {/* Headline */}
                 <motion.h1
                     initial={{ opacity: 0, y: 20 }}
@@ -29,7 +18,7 @@ export default function Hero({ onPrimaryCTA, onSecondaryCTA }: HeroProps) {
                     transition={{ duration: 0.5, delay: 0.1 }}
                     className="text-4xl md:text-6xl lg:text-7xl font-semibold leading-tight mb-6"
                 >
-                    I design AI systems that{' '}
+                    We engineer AI systems that{' '}
                     <span className="gradient-text">eliminate manual work.</span>
                 </motion.h1>
 
@@ -40,8 +29,8 @@ export default function Hero({ onPrimaryCTA, onSecondaryCTA }: HeroProps) {
                     transition={{ duration: 0.5, delay: 0.2 }}
                     className="text-lg md:text-xl text-muted max-w-2xl mx-auto mb-12"
                 >
-                    Not demos. Not chatbots for the sake of it.{' '}
-                    <span className="text-foreground">Real automations that run businesses.</span>
+                    No proof-of-concepts. No off-the-shelf chatbots.{' '}
+                    <span className="text-foreground">Production-grade automation built to scale your operations.</span>
                 </motion.p>
 
                 {/* CTAs */}
@@ -55,13 +44,13 @@ export default function Hero({ onPrimaryCTA, onSecondaryCTA }: HeroProps) {
                         onClick={onPrimaryCTA}
                         className="px-8 py-4 bg-accent hover:bg-accent-dim text-background font-medium rounded-lg transition-all duration-200 hover:scale-105"
                     >
-                        Design your automation
+                        Design Your Automation
                     </button>
                     <button
                         onClick={onSecondaryCTA}
                         className="px-8 py-4 glass-card hover:bg-card-hover text-foreground font-medium rounded-lg transition-all duration-200"
                     >
-                        See live systems
+                        View Live Systems
                     </button>
                 </motion.div>
 

@@ -18,16 +18,16 @@ export default function FinalCTA() {
                 <h2 className="text-3xl md:text-5xl font-semibold mb-6 leading-tight">
                     Describe your workflow.
                     <br />
-                    <span className="gradient-text">I'll design the system.</span>
+                    <span className="gradient-text">We'll architect the solution.</span>
                 </h2>
 
                 <p className="text-lg text-muted mb-10 max-w-xl mx-auto">
-                    No sales calls. No discovery phases. Just tell me what's broken, and I'll show you how to fix it.
+                    No lengthy discovery phases. Share your operational challenge, and our team will deliver a tailored automation blueprint.
                 </p>
 
                 <div className="flex flex-col sm:flex-row gap-4 justify-center">
                     <a
-                        href="https://mail.google.com/mail/u/0/?fs=1&to=avlokaibusiness@gmail.com&su=Automation%20Project%20Inquiry&body=Hi%20there,%0D%0A%0D%0AI%27m%20interested%20in%20discussing%20an%20automation%20project.%0D%0A%0D%0APlease%20describe%20your%20current%20workflow%20challenge:%0D%0A%0D%0A%0D%0ABest%20regards&tf=cm"
+                        href="https://mail.google.com/mail/u/0/?fs=1&to=avlokaibusiness@gmail.com&su=Automation%20Project%20Inquiry&body=Hi%20AvlokAI%20Team,%0D%0A%0D%0AWe%27re%20interested%20in%20exploring%20an%20automation%20solution%20for%20our%20organization.%0D%0A%0D%0ACurrent%20workflow%20challenge:%0D%0A%0D%0A%0D%0ABest%20regards&tf=cm"
                         target="_blank"
                         rel="noopener noreferrer"
                         className="px-8 py-4 bg-accent hover:bg-accent-dim text-background font-medium rounded-lg transition-all duration-200 hover:scale-105 inline-flex items-center justify-center gap-2"
@@ -35,7 +35,7 @@ export default function FinalCTA() {
                         <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
                         </svg>
-                        Get in touch
+                        Contact Our Team
                     </a>
                     <button
                         onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
@@ -44,7 +44,7 @@ export default function FinalCTA() {
                         <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 17V7m0 10a2 2 0 01-2 2H5a2 2 0 01-2-2V7a2 2 0 012-2h2a2 2 0 012 2m0 10a2 2 0 002 2h2a2 2 0 002-2M9 7a2 2 0 012-2h2a2 2 0 012 2m0 10V7m0 10a2 2 0 002 2h2a2 2 0 002-2V7a2 2 0 00-2-2h-2a2 2 0 00-2 2" />
                         </svg>
-                        View Projects
+                        View Our Work
                     </button>
                 </div>
 

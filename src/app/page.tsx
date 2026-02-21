@@ -1,13 +1,14 @@
 'use client'
 
 import { useRef } from 'react'
-import MilkyGalaxy from '@/components/MilkyGalaxy'
+import SplineScene from '@/components/SplineScene'
 import Hero from '@/components/Hero'
 import FlowDiagram from '@/components/FlowDiagram'
 import AutomationWizard from '@/components/AutomationWizard'
 import DemoPlayground from '@/components/DemoPlayground'
 import ProcessFlow from '@/components/ProcessFlow'
 import Constraints from '@/components/Constraints'
+import { StaggerTestimonials } from '@/components/ui/stagger-testimonials'
 import FinalCTA from '@/components/FinalCTA'
 
 export default function Home() {
@@ -24,9 +25,9 @@ export default function Home() {
 
     return (
         <main className="relative">
-            {/* Milky galaxy background for hero */}
+            {/* Spline 3D background for hero */}
             <div className="absolute inset-0 h-screen">
-                <MilkyGalaxy />
+                <SplineScene scene="https://prod.spline.design/wRG53E29NQRjhXoT/scene.splinecode" />
             </div>
 
             {/* Hero Section */}
@@ -51,6 +52,9 @@ export default function Home() {
             {/* Constraints & Philosophy */}
             <Constraints />
 
+            {/* Testimonials */}
+            <StaggerTestimonials />
+
             {/* Final CTA */}
             <FinalCTA />
 
@@ -61,7 +65,7 @@ export default function Home() {
                         © {new Date().getFullYear()} AvlokAI. All rights reserved.
                     </p>
                     <p className="text-sm text-muted">
-                        Built with systems thinking. No fluff.
+                        Engineered with precision. Delivered with purpose.
                     </p>
                 </div>
             </footer>

@@ -46,10 +46,10 @@ export default function DemoPlayground() {
             <div className="max-w-4xl mx-auto">
                 <div className="text-center mb-12">
                     <h2 className="text-3xl md:text-4xl font-semibold mb-4">
-                        Try the kind of systems <span className="gradient-text">I build</span>
+                        Experience the systems <span className="gradient-text">we build</span>
                     </h2>
                     <p className="text-muted max-w-2xl mx-auto">
-                        Interactive demos showing real automation patterns. These aren't mockups — they're working examples.
+                        Interactive demonstrations of real automation patterns. These aren't mockups — they're working examples of our production systems.
                     </p>
                 </div>
 
@@ -77,8 +77,8 @@ export default function DemoPlayground() {
                             onClick={classifyText}
                             disabled={!inputText.trim() || isProcessing}
                             className={`w-full py-3 rounded-lg font-medium transition-all ${inputText.trim() && !isProcessing
-                                    ? 'bg-accent text-background hover:bg-accent-dim'
-                                    : 'bg-muted/20 text-muted cursor-not-allowed'
+                                ? 'bg-accent text-background hover:bg-accent-dim'
+                                : 'bg-muted/20 text-muted cursor-not-allowed'
                                 }`}
                         >
                             {isProcessing ? (
