@@ -9,6 +9,7 @@ import DemoPlayground from '@/components/DemoPlayground'
 import ProcessFlow from '@/components/ProcessFlow'
 import Constraints from '@/components/Constraints'
 import { StaggerTestimonials } from '@/components/ui/stagger-testimonials'
+import TeamSection from '@/components/TeamSection'
 import FinalCTA from '@/components/FinalCTA'
 
 export default function Home() {
@@ -54,6 +55,9 @@ export default function Home() {
 
             {/* Testimonials */}
             <StaggerTestimonials />
+
+            {/* Meet the Team */}
+            <TeamSection />
 
             {/* Final CTA */}
             <FinalCTA />

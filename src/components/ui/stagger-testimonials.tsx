@@ -10,122 +10,102 @@ const testimonials = [
     {
         tempId: 0,
         testimonial: "Our automation workflows run 5x faster since switching to AvlokAI. They truly understand production-grade systems.",
-        by: "Alex, CEO at TechCorp",
-        imgSrc: "https://i.pravatar.cc/150?img=1"
+        by: "Alex, CEO at TechCorp"
     },
     {
         tempId: 1,
         testimonial: "I'm confident my data is safe with AvlokAI. Their approach to security is unlike anything else in the market.",
-        by: "Dan, CTO at SecureNet",
-        imgSrc: "https://i.pravatar.cc/150?img=2"
+        by: "Dan, CTO at SecureNet"
     },
     {
         tempId: 2,
         testimonial: "We were drowning in manual processes before we found AvlokAI. Can't thank them enough for the transformation!",
-        by: "Stephanie, COO at InnovateCo",
-        imgSrc: "https://i.pravatar.cc/150?img=3"
+        by: "Stephanie, COO at InnovateCo"
     },
     {
         tempId: 3,
         testimonial: "AvlokAI's solutions make planning for the future seamless. Highly recommended for any scaling business!",
-        by: "Marie, CFO at FuturePlanning",
-        imgSrc: "https://i.pravatar.cc/150?img=4"
+        by: "Marie, CFO at FuturePlanning"
     },
     {
         tempId: 4,
         testimonial: "If I could give 11 stars, I'd give 12. The level of engineering is exceptional.",
-        by: "Andre, Head of Design at CreativeSolutions",
-        imgSrc: "https://i.pravatar.cc/150?img=5"
+        by: "Andre, Head of Design at CreativeSolutions"
     },
     {
         tempId: 5,
         testimonial: "SO HAPPY WE FOUND AVLOKAI! I'd bet they've saved us 100+ hours of manual work so far.",
-        by: "Jeremy, Product Manager at TimeWise",
-        imgSrc: "https://i.pravatar.cc/150?img=6"
+        by: "Jeremy, Product Manager at TimeWise"
     },
     {
         tempId: 6,
         testimonial: "Took some convincing, but now that we're on AvlokAI, we're never going back to manual workflows.",
-        by: "Pam, Marketing Director at BrandBuilders",
-        imgSrc: "https://i.pravatar.cc/150?img=7"
+        by: "Pam, Marketing Director at BrandBuilders"
     },
     {
         tempId: 7,
         testimonial: "I would be lost without AvlokAI's in-depth analytics. The ROI is EASILY 100X for us.",
-        by: "Daniel, Data Scientist at AnalyticsPro",
-        imgSrc: "https://i.pravatar.cc/150?img=8"
+        by: "Daniel, Data Scientist at AnalyticsPro"
     },
     {
         tempId: 8,
         testimonial: "It's just the best automation partner. Period.",
-        by: "Fernando, UX Designer at UserFirst",
-        imgSrc: "https://i.pravatar.cc/150?img=9"
+        by: "Fernando, UX Designer at UserFirst"
     },
     {
         tempId: 9,
         testimonial: "We switched to AvlokAI 2 years ago and never looked back. Absolute game-changer.",
-        by: "Andy, DevOps Engineer at CloudMasters",
-        imgSrc: "https://i.pravatar.cc/150?img=10"
+        by: "Andy, DevOps Engineer at CloudMasters"
     },
     {
         tempId: 10,
         testimonial: "I've been searching for a solution like AvlokAI for YEARS. So glad I finally found them!",
-        by: "Pete, Sales Director at RevenueRockets",
-        imgSrc: "https://i.pravatar.cc/150?img=11"
+        by: "Pete, Sales Director at RevenueRockets"
     },
     {
         tempId: 11,
         testimonial: "It's so simple and intuitive, we got the entire team up to speed in 10 minutes.",
-        by: "Marina, HR Manager at TalentForge",
-        imgSrc: "https://i.pravatar.cc/150?img=12"
+        by: "Marina, HR Manager at TalentForge"
     },
     {
         tempId: 12,
         testimonial: "AvlokAI's support is unparalleled. They're always there when we need them.",
-        by: "Olivia, Customer Success Manager at ClientCare",
-        imgSrc: "https://i.pravatar.cc/150?img=13"
+        by: "Olivia, Customer Success Manager at ClientCare"
     },
     {
         tempId: 13,
         testimonial: "The efficiency gains we've seen since implementing AvlokAI are off the charts!",
-        by: "Raj, Operations Manager at StreamlineSolutions",
-        imgSrc: "https://i.pravatar.cc/150?img=14"
+        by: "Raj, Operations Manager at StreamlineSolutions"
     },
     {
         tempId: 14,
         testimonial: "AvlokAI has revolutionized how we handle our workflow. Truly production-grade!",
-        by: "Lila, Workflow Specialist at ProcessPro",
-        imgSrc: "https://i.pravatar.cc/150?img=15"
+        by: "Lila, Workflow Specialist at ProcessPro"
     },
     {
         tempId: 15,
         testimonial: "The scalability of their solutions is impressive. It grows with our business seamlessly.",
-        by: "Trevor, Scaling Officer at GrowthGurus",
-        imgSrc: "https://i.pravatar.cc/150?img=16"
+        by: "Trevor, Scaling Officer at GrowthGurus"
     },
     {
         tempId: 16,
         testimonial: "I appreciate how AvlokAI continually innovates. They're always one step ahead.",
-        by: "Naomi, Innovation Lead at FutureTech",
-        imgSrc: "https://i.pravatar.cc/150?img=17"
+        by: "Naomi, Innovation Lead at FutureTech"
     },
     {
         tempId: 17,
         testimonial: "The ROI we've seen with AvlokAI is incredible. It's paid for itself many times over.",
-        by: "Victor, Finance Analyst at ProfitPeak",
-        imgSrc: "https://i.pravatar.cc/150?img=18"
+        by: "Victor, Finance Analyst at ProfitPeak"
     },
     {
         tempId: 18,
         testimonial: "Their platform is so robust, yet easy to use. It's the perfect balance.",
-        by: "Yuki, Tech Lead at BalancedTech",
-        imgSrc: "https://i.pravatar.cc/150?img=19"
+        by: "Yuki, Tech Lead at BalancedTech"
     },
     {
         tempId: 19,
         testimonial: "We've tried many solutions, but AvlokAI stands out in terms of reliability and performance.",
-        by: "Zoe, Performance Manager at ReliableSystems",
-        imgSrc: "https://i.pravatar.cc/150?img=20"
+        by: "Zoe, Performance Manager at ReliableSystems"
     }
 ];
 
@@ -178,15 +158,7 @@ const TestimonialCard: React.FC<TestimonialCardProps> = ({
                     background: 'var(--border)'
                 }}
             />
-            <img
-                src={testimonial.imgSrc}
-                alt={`${testimonial.by.split(',')[0]}`}
-                className="mb-4 h-14 w-12 object-cover object-top"
-                style={{
-                    background: 'var(--muted)',
-                    boxShadow: "3px 3px 0px var(--background)"
-                }}
-            />
+
             <h3 className="text-base sm:text-xl font-medium">
                 &ldquo;{testimonial.testimonial}&rdquo;
             </h3>

@@ -1,6 +1,6 @@
 'use client'
 
-import { useCallback, useState, useRef } from 'react'
+import { useCallback, useState, useRef, useEffect } from 'react'
 import {
     ReactFlow,
     Background,
@@ -97,6 +97,17 @@ export default function FlowDiagram() {
     const [edges, setEdges, onEdgesChange] = useEdgesState(initialEdges)
     const [selectedNode, setSelectedNode] = useState<any>(null)
     const reactFlowRef = useRef<ReactFlowInstance | null>(null)
+    const [isMobile, setIsMobile] = useState(false)
+
+    // Detect mobile/touch devices to disable scroll-hijacking
+    useEffect(() => {
+        const checkMobile = () => {
+            setIsMobile(window.innerWidth < 768 || 'ontouchstart' in window)
+        }
+        checkMobile()
+        window.addEventListener('resize', checkMobile)
+        return () => window.removeEventListener('resize', checkMobile)
+    }, [])
 
     const onConnect = useCallback(
         (params: Connection) => setEdges((eds) => addEdge(params, eds)),
@@ -159,6 +170,13 @@ export default function FlowDiagram() {
                         fitView
                         attributionPosition="bottom-left"
                         proOptions={{ hideAttribution: true }}
+                        panOnDrag={!isMobile}
+                        zoomOnScroll={!isMobile}
+                        zoomOnPinch={!isMobile}
+                        panOnScroll={false}
+                        preventScrolling={!isMobile}
+                        zoomOnDoubleClick={!isMobile}
+                        nodesDraggable={!isMobile}
                     >
                         <Background color="#27272a" gap={20} size={1} />
                     </ReactFlow>
