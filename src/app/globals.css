@@ -5,7 +5,7 @@
 @tailwind utilities;
 
 :root {
-    --background: #0a0a0b;
+    --background: #000000;
     --foreground: #fafafa;
     --accent: #10b981;
     --accent-dim: #059669;

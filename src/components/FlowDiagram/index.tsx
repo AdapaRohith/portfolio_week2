@@ -171,11 +171,11 @@ export default function FlowDiagram() {
                         attributionPosition="bottom-left"
                         proOptions={{ hideAttribution: true }}
                         panOnDrag={!isMobile}
-                        zoomOnScroll={!isMobile}
+                        zoomOnScroll={false}
                         zoomOnPinch={!isMobile}
                         panOnScroll={false}
-                        preventScrolling={!isMobile}
-                        zoomOnDoubleClick={!isMobile}
+                        preventScrolling={false}
+                        zoomOnDoubleClick={false}
                         nodesDraggable={!isMobile}
                     >
                         <Background color="#27272a" gap={20} size={1} />

@@ -26,13 +26,19 @@ export default function Home() {
 
     return (
         <main className="relative">
-            {/* Spline 3D background for hero */}
-            <div className="absolute inset-0 h-screen">
-                <SplineScene scene="https://prod.spline.design/wRG53E29NQRjhXoT/scene.splinecode" />
-            </div>
+            {/* Hero Section with Spline alongside */}
+            <div className="relative min-h-screen flex items-center px-6 max-w-7xl mx-auto overflow-hidden">
+                <div className="w-full lg:w-1/2 z-10">
+                    <Hero onPrimaryCTA={scrollToWizard} onSecondaryCTA={scrollToDiagram} />
+                </div>
 
-            {/* Hero Section */}
-            <Hero onPrimaryCTA={scrollToWizard} onSecondaryCTA={scrollToDiagram} />
+                {/* Spline 3D visualization */}
+                <div className="absolute lg:relative inset-0 lg:inset-auto w-full lg:w-1/2 h-screen z-0 opacity-30 lg:opacity-100 flex items-center justify-center">
+                    <div className="w-full h-full flex items-center justify-center">
+                        <SplineScene scene="/scene-clean.splinecode" />
+                    </div>
+                </div>
+            </div>
 
             {/* Interactive System Diagram */}
             <div ref={diagramRef}>
@@ -53,11 +59,11 @@ export default function Home() {
             {/* Constraints & Philosophy */}
             <Constraints />
 
-            {/* Testimonials */}
-            <StaggerTestimonials />
-
             {/* Meet the Team */}
             <TeamSection />
+
+            {/* Testimonials */}
+            <StaggerTestimonials />
 
             {/* Final CTA */}
             <FinalCTA />
