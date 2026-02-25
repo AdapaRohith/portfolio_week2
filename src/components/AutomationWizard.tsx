@@ -83,6 +83,32 @@ export default function AutomationWizard() {
         }
     }
 
+    const handleLaunch = () => {
+        const selectedTools = data.tools
+            .map((id) => toolOptions.find((t) => t.id === id)?.label)
+            .filter(Boolean)
+            .join(', ')
+        const selectedFrequency =
+            frequencyOptions.find((f) => f.id === data.frequency)?.label || 'Not specified'
+        const selectedOutput =
+            outputOptions.find((o) => o.id === data.output)?.label || 'Not specified'
+
+        const subject = encodeURIComponent('New Automation Request — AvlokAI')
+        const body = encodeURIComponent(
+            `Hello AvlokAI,\n\nI'd like to set up an automation with the following details:\n\n` +
+            `Problem:\n${data.problem}\n\n` +
+            `Tools I use:\n${selectedTools}\n\n` +
+            `Frequency:\n${selectedFrequency}\n\n` +
+            `Desired Output:\n${selectedOutput}\n\n` +
+            `Looking forward to hearing from you!`
+        )
+
+        window.open(
+            `https://mail.google.com/mail/?view=cm&fs=1&to=avlokaibusiness@gmail.com&su=${subject}&body=${body}`,
+            '_blank'
+        )
+    }
+
     return (
         <section className="py-24 px-6 bg-card/50">
             <div className="max-w-3xl mx-auto">
@@ -264,7 +290,10 @@ export default function AutomationWizard() {
                                         </div>
                                     </div>
 
-                                    <button className="w-full py-4 bg-accent hover:bg-accent-dim text-background font-medium rounded-lg transition-all">
+                                    <button
+                                        onClick={handleLaunch}
+                                        className="w-full py-4 bg-accent hover:bg-accent-dim text-background font-medium rounded-lg transition-all"
+                                    >
                                         Launch this project with AvlokAI →
                                     </button>
                                 </div>

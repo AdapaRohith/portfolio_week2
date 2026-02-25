@@ -27,14 +27,14 @@ export default function Home() {
     return (
         <main className="relative">
             {/* Hero Section with Spline alongside */}
-            <div className="relative min-h-screen flex items-center px-6 max-w-7xl mx-auto overflow-hidden">
-                <div className="w-full lg:w-1/2 z-10">
+            <div className="relative min-h-[100svh] flex flex-col lg:flex-row items-center px-6 pt-24 lg:pt-0 max-w-7xl mx-auto overflow-hidden">
+                <div className="w-full lg:w-1/2 z-10 order-2 lg:order-1 pb-16 lg:pb-0">
                     <Hero onPrimaryCTA={scrollToWizard} onSecondaryCTA={scrollToDiagram} />
                 </div>
 
                 {/* Spline 3D visualization */}
-                <div className="absolute lg:relative inset-0 lg:inset-auto w-full lg:w-1/2 h-screen z-0 opacity-30 lg:opacity-100 flex items-center justify-center">
-                    <div className="w-full h-full flex items-center justify-center">
+                <div className="relative w-full lg:w-1/2 h-[50vh] lg:h-screen z-0 flex items-center justify-center order-1 lg:order-2 pointer-events-auto">
+                    <div className="w-full h-full flex items-center justify-center cursor-grab active:cursor-grabbing">
                         <SplineScene scene="/scene-clean.splinecode" />
                     </div>
                 </div>

@@ -149,7 +149,7 @@ export default function FlowDiagram() {
             <div className="max-w-6xl mx-auto">
                 <div className="text-center mb-12">
                     <h2 className="text-3xl md:text-4xl font-semibold mb-4">
-                        How my automations <span className="gradient-text">actually work</span>
+                        How our automations <span className="gradient-text">actually work</span>
                     </h2>
                     <p className="text-muted max-w-2xl mx-auto">
                         Click on any node to understand its purpose. Drag to explore. This is the anatomy of a real automation system.

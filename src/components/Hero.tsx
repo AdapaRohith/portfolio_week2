@@ -9,8 +9,8 @@ interface HeroProps {
 
 export default function Hero({ onPrimaryCTA, onSecondaryCTA }: HeroProps) {
     return (
-        <section className="relative min-h-screen flex items-center justify-start px-6 pointer-events-none">
-            <div className="max-w-2xl text-left z-10 pointer-events-auto">
+        <section className="relative w-full flex items-center justify-start lg:min-h-[calc(100vh-80px)] pointer-events-none">
+            <div className="max-w-2xl text-left z-10 pointer-events-auto w-full">
                 {/* Headline */}
                 <motion.h1
                     initial={{ opacity: 0, y: 20 }}

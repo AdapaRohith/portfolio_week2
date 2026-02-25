@@ -1,7 +1,8 @@
 'use client'
 
-import { useState, useRef, useCallback, useEffect } from 'react'
+import { useState, useRef, useEffect } from 'react'
 import Spline from '@splinetool/react-spline'
+import type { Application } from '@splinetool/runtime'
 
 interface SplineSceneProps {
     scene: string
@@ -11,34 +12,44 @@ interface SplineSceneProps {
 export default function SplineScene({ scene, className }: SplineSceneProps) {
     const [loaded, setLoaded] = useState(false)
     const containerRef = useRef<HTMLDivElement>(null)
+    const splineRef = useRef<Application | null>(null)
 
+    // Intercept wheel events on the container so Spline can't hijack page scroll.
+    // We use a native listener with { passive: false } to call preventDefault(),
+    // then manually scroll the window instead.
     useEffect(() => {
-        // We only need this for loaded state and other side effects if any
-    }, [loaded])
+        const el = containerRef.current
+        if (!el) return
 
-    // When mouse leaves the 3D area, we previously dispatched a synthetic mousemove.
-    const handleMouseLeave = useCallback(() => {
-        const canvas = containerRef.current?.querySelector('canvas')
-        if (!canvas) return
+        const handleWheel = (e: WheelEvent) => {
+            e.preventDefault()
+            e.stopPropagation()
+            window.scrollBy({ top: e.deltaY, behavior: 'auto' })
+        }
 
-        const rect = canvas.getBoundingClientRect()
-        const centerX = rect.left + rect.width / 2
-        const centerY = rect.top + rect.height / 2
-
-        canvas.dispatchEvent(
-            new MouseEvent('mousemove', {
-                clientX: centerX,
-                clientY: centerY,
-                bubbles: true,
-            })
-        )
+        el.addEventListener('wheel', handleWheel, { passive: false })
+        return () => el.removeEventListener('wheel', handleWheel)
     }, [])
+
+    // Disable Spline's built-in scroll/zoom controls once loaded
+    // so it doesn't fight with page scrolling
+    const handleLoad = (splineApp: Application) => {
+        splineRef.current = splineApp
+        setLoaded(true)
+
+        // Spline runtime exposes setZoom; disable scroll-zoom if available
+        try {
+            splineApp.setZoom(1)
+        } catch {
+            // older runtime versions may not have this
+        }
+    }
 
     return (
         <div
             ref={containerRef}
             className={`spline-scene-container relative w-full h-full flex items-center justify-center ${className ?? ''}`}
-            onMouseLeave={handleMouseLeave}
+            style={{ touchAction: 'pan-y' }}
         >
             {/* Loading indicator */}
             {!loaded && (
@@ -49,41 +60,15 @@ export default function SplineScene({ scene, className }: SplineSceneProps) {
 
             <Spline
                 scene={scene}
-                onLoad={() => setLoaded(true)}
+                onLoad={handleLoad}
                 style={{
                     width: '100%',
                     height: '100%',
                     opacity: loaded ? 1 : 0,
                     transition: 'opacity 0.6s ease-in-out',
                     transform: 'scale(1.5)',
-                    transformOrigin: 'center center'
-                }}
-            />
-
-            {/* Invisible overlay that captures wheel events to force window scroll, 
-                but ignores other pointer events so the 3D model still reacts to hover */}
-            <div
-                className="absolute inset-0 z-20"
-                style={{ touchAction: 'pan-y' }} // Allows native touch scrolling
-                onWheel={(e) => {
-                    window.scrollBy({
-                        top: e.deltaY,
-                        behavior: 'auto'
-                    })
-                }}
-                onPointerMove={(e) => {
-                    if (e.pointerType !== 'mouse') return
-                    const canvas = containerRef.current?.querySelector('canvas')
-                    if (canvas) {
-                        canvas.dispatchEvent(
-                            new PointerEvent('pointermove', {
-                                bubbles: true,
-                                cancelable: true,
-                                clientX: e.clientX,
-                                clientY: e.clientY,
-                            })
-                        )
-                    }
+                    transformOrigin: 'center center',
+                    pointerEvents: 'auto',
                 }}
             />
         </div>
