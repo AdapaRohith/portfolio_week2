@@ -1,6 +1,7 @@
 import type { Metadata } from 'next'
 import './globals.css'
 import Header from '@/components/Header'
+import FloatingPhonePopup from '@/components/FloatingPhonePopup'
 
 export const metadata: Metadata = {
     title: 'AvlokAI — Intelligent Automation Solutions',
@@ -28,6 +29,7 @@ export default function RootLayout({
             <body className="min-h-screen bg-background text-foreground">
                 <Header />
                 {children}
+                <FloatingPhonePopup />
             </body>
         </html>
     )
