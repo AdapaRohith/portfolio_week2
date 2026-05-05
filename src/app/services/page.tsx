@@ -1,0 +1,238 @@
+import type { Metadata } from 'next'
+import Link from 'next/link'
+
+export const metadata: Metadata = {
+    title: 'Our Services — AvlokAI | AI Automation Solutions for Every Business',
+    description: 'Explore AvlokAI\'s full range of AI automation services: lead generation, CRM integration, workflow automation, chatbots, data pipelines, and more across 6 industry verticals.',
+    alternates: {
+        canonical: 'https://avlokai.com/services',
+    },
+    openGraph: {
+        title: 'Our Services — AvlokAI',
+        description: 'Full-stack AI automation services built for production. From lead qualification to predictive maintenance.',
+        url: 'https://avlokai.com/services',
+        type: 'website',
+    },
+}
+
+const serviceCategories = [
+    {
+        icon: '💻',
+        title: 'IT Services & Software Development',
+        slug: 'it-services',
+        description: 'Streamline your development lifecycle with AI-powered lead qualification, automated invoicing, bug triage, performance dashboards, and resource allocation.',
+        highlights: [
+            'Lead Qualification & Sales Pipeline Automation',
+            'Automated Invoice & Billing Reconciliation',
+            'Bug Report Triage & Assignment',
+            'Performance Metrics & Dashboard Generation',
+            'Support Ticket Auto-Response & Escalation',
+        ],
+        color: 'from-blue-500/20 to-cyan-500/20',
+        borderColor: 'border-blue-500/30',
+        textColor: 'text-blue-400',
+    },
+    {
+        icon: '🛒',
+        title: 'E-Commerce & Retail',
+        slug: 'ecommerce',
+        description: 'Automate omnichannel inventory sync, AI-powered review analysis, order fulfillment, and pricing intelligence to scale your online retail operations.',
+        highlights: [
+            'Omnichannel Inventory & Pricing Sync',
+            'Review Aggregation & AI Sentiment Analysis',
+            'Automated Order Fulfillment & Logistics',
+        ],
+        color: 'from-amber-500/20 to-orange-500/20',
+        borderColor: 'border-amber-500/30',
+        textColor: 'text-amber-400',
+    },
+    {
+        icon: '🏭',
+        title: 'Manufacturing & Logistics',
+        slug: 'manufacturing',
+        description: 'Reduce downtime and optimize supply chains with predictive maintenance, quality control via computer vision, and intelligent purchase order management.',
+        highlights: [
+            'Supply Chain Visibility & Tracking',
+            'Predictive Maintenance Alert System',
+            'Quality Control & Defect Detection',
+            'Inventory Optimization & Reorder Alerts',
+        ],
+        color: 'from-slate-500/20 to-zinc-500/20',
+        borderColor: 'border-slate-500/30',
+        textColor: 'text-slate-400',
+    },
+    {
+        icon: '🏥',
+        title: 'Healthcare & Pharma',
+        slug: 'healthcare',
+        description: 'Automate patient scheduling, claims processing, and HIPAA compliance auditing — so your medical staff can focus on patient care.',
+        highlights: [
+            'Patient Appointment Scheduling & Reminders',
+            'Medical Billing & Claims Processing',
+            'Patient Data Compliance (HIPAA Audit)',
+        ],
+        color: 'from-rose-500/20 to-pink-500/20',
+        borderColor: 'border-rose-500/30',
+        textColor: 'text-rose-400',
+    },
+    {
+        icon: '🏗️',
+        title: 'Real Estate & Construction',
+        slug: 'real-estate',
+        description: 'From AI-powered lead management to property listing sync and site inspection tracking, automate the full real estate lifecycle.',
+        highlights: [
+            'Lead Management & Property Inquiry Automation',
+            'Project Milestone & Payment Reminders',
+            'Property Listing Sync Across Portals',
+            'Site Inspection & Progress Tracking',
+        ],
+        color: 'from-emerald-500/20 to-teal-500/20',
+        borderColor: 'border-emerald-500/30',
+        textColor: 'text-emerald-400',
+    },
+    {
+        icon: '📱',
+        title: 'SMB Micro-Automations',
+        slug: 'smb',
+        description: 'Affordable, ready-to-deploy automations for small businesses: WhatsApp broadcasts, Google review requests, appointment reminders, daily sales summaries, and more.',
+        highlights: [
+            'WhatsApp Broadcast Auto-Send',
+            'Google Review Request Automation',
+            'Appointment Reminders via SMS/WhatsApp',
+            'Daily Sales Summary Reports',
+            'Low Stock Alerts & Expense Categorization',
+        ],
+        color: 'from-violet-500/20 to-purple-500/20',
+        borderColor: 'border-violet-500/30',
+        textColor: 'text-violet-400',
+    },
+]
+
+export default function ServicesPage() {
+    return (
+        <main className="min-h-screen bg-background pt-28 pb-20 px-6">
+            <div className="max-w-6xl mx-auto">
+                {/* Breadcrumb */}
+                <nav className="text-sm text-muted mb-8" aria-label="Breadcrumb">
+                    <Link href="/" className="hover:text-foreground transition-colors">Home</Link>
+                    <span className="mx-2">›</span>
+                    <span className="text-foreground">Services</span>
+                </nav>
+
+                {/* Hero */}
+                <div className="text-center mb-16">
+                    <h1 className="text-4xl md:text-6xl font-bold mb-6">
+                        AI Automation <span className="gradient-text">Services</span>
+                    </h1>
+                    <p className="text-lg text-muted max-w-3xl mx-auto mb-8">
+                        Production-grade automation systems across 6 industry verticals. Every solution is custom-built, monitored, and optimized for measurable ROI.
+                    </p>
+                    <div className="flex flex-wrap justify-center gap-4">
+                        <Link
+                            href="/industries"
+                            className="px-6 py-3 glass-card hover:bg-card-hover text-foreground text-sm font-medium rounded-lg transition-all"
+                        >
+                            Browse by Industry →
+                        </Link>
+                        <a
+                            href="https://catalogue.avlokai.com"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="px-6 py-3 bg-accent hover:bg-accent-dim text-background text-sm font-medium rounded-lg transition-all"
+                        >
+                            View Full Catalogue ↗
+                        </a>
+                    </div>
+                </div>
+
+                {/* Service Cards Grid */}
+                <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mb-20">
+                    {serviceCategories.map((service) => (
+                        <article
+                            key={service.slug}
+                            id={`service-${service.slug}`}
+                            className={`glass-card rounded-2xl p-6 hover:bg-card-hover transition-all duration-300 border-l-4 ${service.borderColor} group`}
+                        >
+                            <div className={`w-12 h-12 rounded-xl bg-gradient-to-br ${service.color} flex items-center justify-center text-2xl mb-4`}>
+                                {service.icon}
+                            </div>
+
+                            <h2 className="text-lg font-semibold mb-3">{service.title}</h2>
+
+                            <p className="text-sm text-muted leading-relaxed mb-4">
+                                {service.description}
+                            </p>
+
+                            <ul className="space-y-2 mb-6">
+                                {service.highlights.map((item) => (
+                                    <li key={item} className="flex items-start gap-2 text-sm text-muted">
+                                        <span className={`mt-0.5 ${service.textColor}`}>•</span>
+                                        {item}
+                                    </li>
+                                ))}
+                            </ul>
+
+                            <a
+                                href="https://catalogue.avlokai.com"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className={`text-sm font-medium ${service.textColor} group-hover:underline inline-flex items-center gap-1`}
+                            >
+                                View in Catalogue
+                                <svg className="w-4 h-4 transition-transform group-hover:translate-x-1" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                                    <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
+                                </svg>
+                            </a>
+                        </article>
+                    ))}
+                </div>
+
+                {/* How We Work Section */}
+                <section className="glass-card rounded-2xl p-8 md:p-12 mb-16">
+                    <h2 className="text-2xl md:text-3xl font-semibold mb-8 text-center">
+                        How every project is <span className="gradient-text">delivered</span>
+                    </h2>
+                    <div className="grid md:grid-cols-4 gap-6">
+                        {[
+                            { step: '01', title: 'Audit', desc: 'We map your current workflows and identify automation opportunities.', icon: '🔍' },
+                            { step: '02', title: 'Architect', desc: 'Custom system blueprint with data flows, edge cases, and fail-safes.', icon: '🗺️' },
+                            { step: '03', title: 'Build', desc: 'Incremental delivery with testing, monitoring, and human-in-the-loop.', icon: '🔧' },
+                            { step: '04', title: 'Optimize', desc: 'Continuous performance tracking and iteration based on real data.', icon: '📈' },
+                        ].map((item) => (
+                            <div key={item.step} className="text-center">
+                                <span className="text-3xl block mb-3">{item.icon}</span>
+                                <span className="text-xs font-mono text-accent">{item.step}</span>
+                                <h3 className="font-medium mt-1 mb-2">{item.title}</h3>
+                                <p className="text-sm text-muted">{item.desc}</p>
+                            </div>
+                        ))}
+                    </div>
+                </section>
+
+                {/* Bottom CTA */}
+                <div className="text-center">
+                    <h2 className="text-2xl md:text-3xl font-semibold mb-4">
+                        Ready to automate?
+                    </h2>
+                    <p className="text-muted mb-8 max-w-xl mx-auto">
+                        Describe your workflow challenge. We&apos;ll architect a production-ready solution.
+                    </p>
+                    <div className="flex flex-wrap justify-center gap-4">
+                        <a
+                            href="mailto:avlokaibusiness@gmail.com"
+                            className="px-8 py-4 bg-accent hover:bg-accent-dim text-background font-medium rounded-lg transition-all"
+                        >
+                            Contact Our Team
+                        </a>
+                        <Link
+                            href="/industries"
+                            className="px-8 py-4 glass-card hover:bg-card-hover text-foreground font-medium rounded-lg transition-all"
+                        >
+                            Explore Industries →
+                        </Link>
+                    </div>
+                </div>
+            </div>
+        </main>
+    )
+}

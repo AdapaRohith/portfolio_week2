@@ -98,9 +98,10 @@ function TeamCard({ member }: { member: TeamMember }) {
                             >
                                 <Image
                                     src={member.image}
-                                    alt={member.name}
+                                    alt={`${member.name} — ${member.role} at AvlokAI`}
                                     width={80}
                                     height={80}
+                                    loading="lazy"
                                     className="w-full h-full object-cover"
                                 />
                             </div>

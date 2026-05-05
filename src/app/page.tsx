@@ -1,6 +1,7 @@
 'use client'
 
 import { useRef } from 'react'
+import Link from 'next/link'
 import SplineScene from '@/components/SplineScene'
 import Hero from '@/components/Hero'
 import FlowDiagram from '@/components/FlowDiagram'
@@ -59,6 +60,46 @@ export default function Home() {
             {/* Constraints & Philosophy */}
             <Constraints />
 
+            {/* Industries We Serve Banner */}
+            <section className="py-16 px-6 bg-card/50">
+                <div className="max-w-5xl mx-auto text-center">
+                    <h2 className="text-2xl md:text-3xl font-semibold mb-4">
+                        Industries we <span className="gradient-text">transform</span>
+                    </h2>
+                    <p className="text-muted max-w-2xl mx-auto mb-8">
+                        From IT services and e-commerce to healthcare and manufacturing — we build automation systems tailored to your sector.
+                    </p>
+                    <div className="flex flex-wrap justify-center gap-3 mb-8">
+                        {[
+                            { label: 'IT Services', icon: '💻' },
+                            { label: 'E-Commerce', icon: '🛒' },
+                            { label: 'Manufacturing', icon: '🏭' },
+                            { label: 'Healthcare', icon: '🏥' },
+                            { label: 'Real Estate', icon: '🏗️' },
+                            { label: 'SMB', icon: '📱' },
+                        ].map((ind) => (
+                            <span key={ind.label} className="px-4 py-2 rounded-full glass-card text-sm">
+                                {ind.icon} {ind.label}
+                            </span>
+                        ))}
+                    </div>
+                    <div className="flex flex-wrap justify-center gap-4">
+                        <Link
+                            href="/industries"
+                            className="px-6 py-3 bg-accent hover:bg-accent-dim text-background text-sm font-medium rounded-lg transition-all"
+                        >
+                            Explore Industries →
+                        </Link>
+                        <Link
+                            href="/services"
+                            className="px-6 py-3 glass-card hover:bg-card-hover text-foreground text-sm font-medium rounded-lg transition-all"
+                        >
+                            View Services →
+                        </Link>
+                    </div>
+                </div>
+            </section>
+
             {/* Meet the Team */}
             <TeamSection />
 
@@ -69,16 +110,80 @@ export default function Home() {
             <FinalCTA />
 
             {/* Footer */}
-            <footer className="py-8 px-6 border-t border-border">
-                <div className="max-w-6xl mx-auto flex flex-col md:flex-row justify-between items-center gap-4">
-                    <p className="text-sm text-muted">
-                        © {new Date().getFullYear()} AvlokAI. All rights reserved.
-                    </p>
-                    <p className="text-sm text-muted">
-                        Engineered with precision. Delivered with purpose.
-                    </p>
+            <footer className="py-12 px-6 border-t border-border">
+                <div className="max-w-6xl mx-auto">
+                    <div className="grid grid-cols-2 md:grid-cols-4 gap-8 mb-10">
+                        {/* Company */}
+                        <div>
+                            <h3 className="text-sm font-semibold text-foreground mb-4">Company</h3>
+                            <ul className="space-y-2">
+                                <li><Link href="/" className="text-sm text-muted hover:text-foreground transition-colors">Home</Link></li>
+                                <li><Link href="/services" className="text-sm text-muted hover:text-foreground transition-colors">Services</Link></li>
+                                <li><Link href="/industries" className="text-sm text-muted hover:text-foreground transition-colors">Industries</Link></li>
+                            </ul>
+                        </div>
+
+                        {/* Resources */}
+                        <div>
+                            <h3 className="text-sm font-semibold text-foreground mb-4">Resources</h3>
+                            <ul className="space-y-2">
+                                <li>
+                                    <a href="https://catalogue.avlokai.com" target="_blank" rel="noopener noreferrer" className="text-sm text-muted hover:text-foreground transition-colors">
+                                        Catalogue
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+
+                        {/* Legal */}
+                        <div>
+                            <h3 className="text-sm font-semibold text-foreground mb-4">Legal</h3>
+                            <ul className="space-y-2">
+                                <li><Link href="/privacy" className="text-sm text-muted hover:text-foreground transition-colors">Privacy Policy</Link></li>
+                                <li><Link href="/terms" className="text-sm text-muted hover:text-foreground transition-colors">Terms of Service</Link></li>
+                                <li><Link href="/data-delete" className="text-sm text-muted hover:text-foreground transition-colors">Data Deletion</Link></li>
+                            </ul>
+                        </div>
+
+                        {/* Contact */}
+                        <div>
+                            <h3 className="text-sm font-semibold text-foreground mb-4">Contact</h3>
+                            <ul className="space-y-2">
+                                <li>
+                                    <a href="mailto:avlokaibusiness@gmail.com" className="text-sm text-muted hover:text-foreground transition-colors">
+                                        avlokaibusiness@gmail.com
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="tel:+919346672015" className="text-sm text-muted hover:text-foreground transition-colors">
+                                        +91 93466 72015
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="https://www.linkedin.com/company/avlokai/" target="_blank" rel="noopener noreferrer" className="text-sm text-muted hover:text-foreground transition-colors">
+                                        LinkedIn
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="https://www.instagram.com/avlok.ai/" target="_blank" rel="noopener noreferrer" className="text-sm text-muted hover:text-foreground transition-colors">
+                                        Instagram
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div className="border-t border-border pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
+                        <p className="text-sm text-muted">
+                            © {new Date().getFullYear()} AvlokAI. All rights reserved.
+                        </p>
+                        <p className="text-sm text-muted">
+                            Engineered with precision. Delivered with purpose.
+                        </p>
+                    </div>
                 </div>
             </footer>
         </main>
     )
 }
+
