@@ -1,5 +1,9 @@
 {
-  "/industries/page": "app/industries/page.js",
+  "/_not-found/page": "app/_not-found/page.js",
+  "/page": "app/page.js",
+  "/privacy/page": "app/privacy/page.js",
+  "/data-delete/page": "app/data-delete/page.js",
+  "/terms/page": "app/terms/page.js",
   "/services/page": "app/services/page.js",
-  "/page": "app/page.js"
+  "/industries/page": "app/industries/page.js"
 }

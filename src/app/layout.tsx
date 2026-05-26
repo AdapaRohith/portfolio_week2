@@ -18,7 +18,7 @@ export const metadata: Metadata = {
     creator: 'AvlokAI',
     publisher: 'AvlokAI',
     icons: {
-        icon: '/favicon.png',
+        icon: '/AvlokAi.png',
         apple: '/apple-touch-icon.png',
     },
     alternates: {
@@ -81,12 +81,12 @@ const jsonLd = {
         {
             '@type': 'Person',
             name: 'Sushanth Kasturi',
-            jobTitle: 'Founder & CEO',
+            jobTitle: 'Founder and CEO',
         },
         {
             '@type': 'Person',
             name: 'Rohith',
-            jobTitle: 'Co-Founder & CTO',
+            jobTitle: 'Co-Founder and CTO',
         },
     ],
 }

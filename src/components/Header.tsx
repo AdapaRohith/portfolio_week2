@@ -23,16 +23,20 @@ export default function Header() {
         >
             <div className="max-w-7xl mx-auto px-6 flex items-center justify-between h-16">
                 {/* Logo */}
-                <Link href="/" className="flex items-center" aria-label="AvlokAI Home">
-                    <div className="w-28 h-12 relative">
+                <Link href="/" className="flex items-center gap-2" aria-label="AvlokAI Home">
+                    <div className="w-10 h-10 relative">
                         <Image
                             src="/AvlokAi.png"
                             alt="AvlokAI — Intelligent Automation Solutions logo"
                             fill
+                            sizes="40px"
                             className="object-contain"
                             priority
                         />
                     </div>
+                    <span className="text-xl font-bold tracking-tight">
+                        Avlok<span className="gradient-text">AI</span>
+                    </span>
                 </Link>
 
                 {/* Desktop Navigation */}

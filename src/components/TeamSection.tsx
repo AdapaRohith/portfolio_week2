@@ -1,6 +1,6 @@
 'use client'
 
-import { useState } from 'react'
+import React, { useState } from 'react'
 import Image from 'next/image'
 
 interface TeamMember {
@@ -8,9 +8,10 @@ interface TeamMember {
     role: string
     initials: string
     description: string
-    portfolioUrl: string
+    portfolioUrl?: string
     gradient: string
     image?: string
+    hierarchyClass?: string
 }
 
 const teamMembers: TeamMember[] = [
@@ -23,6 +24,7 @@ const teamMembers: TeamMember[] = [
             'Visionary leader driving innovation in AI-powered automation. Passionate about building intelligent systems that transform businesses and deliver measurable impact.',
         portfolioUrl: 'https://sushanth.avlokai.com/',
         gradient: 'from-emerald-500 to-teal-400',
+        hierarchyClass: 'md:order-1',
     },
     {
         name: 'Rohith',
@@ -33,6 +35,18 @@ const teamMembers: TeamMember[] = [
             'Technical architect with deep expertise in scalable systems and machine learning. Committed to engineering excellence and turning complex challenges into elegant solutions.',
         portfolioUrl: 'https://rohith.avlokai.com/',
         gradient: 'from-teal-400 to-cyan-400',
+        hierarchyClass: 'md:order-2',
+    },
+    {
+        name: 'Nathaniel Francis',
+        role: 'Chief Revenue Officer',
+        initials: 'NF',
+        image: '/nathan.jpg',
+        description:
+            'Commanding the entire sales engine at AvlokAI. Leads and empowers the sales team to drive growth, forge strategic partnerships, and bring intelligent automation to enterprises at scale.',
+        portfolioUrl: 'https://nathaniel.avlokai.com/',
+        gradient: 'from-cyan-400 to-blue-500',
+        hierarchyClass: 'md:order-3 md:col-span-2 md:mx-auto md:w-[calc(50%-1rem)]',
     },
 ]
 
@@ -60,7 +74,7 @@ export default function TeamSection() {
                 </div>
 
                 {/* Team cards */}
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:items-start">
                     {teamMembers.map((member) => (
                         <TeamCard key={member.role} member={member} />
                     ))}
@@ -73,15 +87,31 @@ export default function TeamSection() {
 function TeamCard({ member }: { member: TeamMember }) {
     const [isHovered, setIsHovered] = useState(false)
 
+    const Wrapper = member.portfolioUrl
+        ? ({ children }: { children: React.ReactNode }) => (
+              <a
+                  href={member.portfolioUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className={`group block transition-transform duration-500 ease-out ${member.hierarchyClass ?? ''}`}
+                  onMouseEnter={() => setIsHovered(true)}
+                  onMouseLeave={() => setIsHovered(false)}
+              >
+                  {children}
+              </a>
+          )
+        : ({ children }: { children: React.ReactNode }) => (
+              <div
+                  className={`group block transition-transform duration-500 ease-out ${member.hierarchyClass ?? ''}`}
+                  onMouseEnter={() => setIsHovered(true)}
+                  onMouseLeave={() => setIsHovered(false)}
+              >
+                  {children}
+              </div>
+          )
+
     return (
-        <a
-            href={member.portfolioUrl}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="group block"
-            onMouseEnter={() => setIsHovered(true)}
-            onMouseLeave={() => setIsHovered(false)}
-        >
+        <Wrapper>
             <div
                 className="glass-card rounded-2xl p-8 transition-all duration-500 ease-out
                     hover:border-accent/40 hover:shadow-[0_0_40px_rgba(16,185,129,0.08)]
@@ -139,23 +169,25 @@ function TeamCard({ member }: { member: TeamMember }) {
                 </p>
 
                 {/* View Portfolio indicator */}
-                <div className="mt-6 flex items-center gap-2 text-sm text-accent/70 group-hover:text-accent transition-colors duration-300">
-                    <span>View Portfolio</span>
-                    <svg
-                        className={`w-4 h-4 transition-transform duration-300 ${isHovered ? 'translate-x-1' : ''}`}
-                        fill="none"
-                        viewBox="0 0 24 24"
-                        stroke="currentColor"
-                        strokeWidth={2}
-                    >
-                        <path
-                            strokeLinecap="round"
-                            strokeLinejoin="round"
-                            d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3"
-                        />
-                    </svg>
-                </div>
+                {member.portfolioUrl && (
+                    <div className="mt-6 flex items-center gap-2 text-sm text-accent/70 group-hover:text-accent transition-colors duration-300">
+                        <span>View Portfolio</span>
+                        <svg
+                            className={`w-4 h-4 transition-transform duration-300 ${isHovered ? 'translate-x-1' : ''}`}
+                            fill="none"
+                            viewBox="0 0 24 24"
+                            stroke="currentColor"
+                            strokeWidth={2}
+                        >
+                            <path
+                                strokeLinecap="round"
+                                strokeLinejoin="round"
+                                d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3"
+                            />
+                        </svg>
+                    </div>
+                )}
             </div>
-        </a>
+        </Wrapper>
     )
 }
