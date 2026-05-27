@@ -39,7 +39,7 @@ const teamMembers: TeamMember[] = [
     },
     {
         name: 'Nathaniel Francis',
-        role: 'Chief Revenue Officer',
+        role: 'Chief Of Sales',
         initials: 'NF',
         image: '/nathan.jpg',
         description:
