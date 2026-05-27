@@ -12,6 +12,16 @@ import Constraints from '@/components/Constraints'
 import { StaggerTestimonials } from '@/components/ui/stagger-testimonials'
 import TeamSection from '@/components/TeamSection'
 import FinalCTA from '@/components/FinalCTA'
+import { ArrowRight, Building2, Factory, Hospital, MonitorCog, ShoppingCart, Smartphone, type LucideIcon } from 'lucide-react'
+
+const industries: Array<{ label: string; icon: LucideIcon }> = [
+    { label: 'IT Services', icon: MonitorCog },
+    { label: 'E-Commerce', icon: ShoppingCart },
+    { label: 'Manufacturing', icon: Factory },
+    { label: 'Healthcare', icon: Hospital },
+    { label: 'Real Estate', icon: Building2 },
+    { label: 'SMB', icon: Smartphone },
+]
 
 export default function Home() {
     const wizardRef = useRef<HTMLDivElement>(null)
@@ -70,31 +80,31 @@ export default function Home() {
                         From IT services and e-commerce to healthcare and manufacturing — we build automation systems tailored to your sector.
                     </p>
                     <div className="flex flex-wrap justify-center gap-3 mb-8">
-                        {[
-                            { label: 'IT Services', icon: '💻' },
-                            { label: 'E-Commerce', icon: '🛒' },
-                            { label: 'Manufacturing', icon: '🏭' },
-                            { label: 'Healthcare', icon: '🏥' },
-                            { label: 'Real Estate', icon: '🏗️' },
-                            { label: 'SMB', icon: '📱' },
-                        ].map((ind) => (
-                            <span key={ind.label} className="px-4 py-2 rounded-full glass-card text-sm">
-                                {ind.icon} {ind.label}
-                            </span>
-                        ))}
+                        {industries.map((ind) => {
+                            const Icon = ind.icon
+
+                            return (
+                                <span key={ind.label} className="inline-flex items-center gap-2 px-4 py-2 rounded-full glass-card text-sm">
+                                    <Icon className="h-4 w-4 text-accent" aria-hidden="true" />
+                                    {ind.label}
+                                </span>
+                            )
+                        })}
                     </div>
                     <div className="flex flex-wrap justify-center gap-4">
                         <Link
                             href="/industries"
-                            className="px-6 py-3 bg-accent hover:bg-accent-dim text-background text-sm font-medium rounded-lg transition-all"
+                            className="inline-flex items-center gap-2 px-6 py-3 bg-accent hover:bg-accent-dim text-background text-sm font-medium rounded-lg transition-all"
                         >
-                            Explore Industries →
+                            Explore Industries
+                            <ArrowRight className="h-4 w-4" aria-hidden="true" />
                         </Link>
                         <Link
                             href="/services"
-                            className="px-6 py-3 glass-card hover:bg-card-hover text-foreground text-sm font-medium rounded-lg transition-all"
+                            className="inline-flex items-center gap-2 px-6 py-3 glass-card hover:bg-card-hover text-foreground text-sm font-medium rounded-lg transition-all"
                         >
-                            View Services →
+                            View Services
+                            <ArrowRight className="h-4 w-4" aria-hidden="true" />
                         </Link>
                     </div>
                 </div>

@@ -2,6 +2,27 @@
 
 import { useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
+import {
+    ArrowLeft,
+    ArrowRight,
+    BarChart3,
+    Bell,
+    Bot,
+    Check,
+    GitBranch,
+    Goal,
+    LayoutDashboard,
+    Mail,
+    MessageSquare,
+    NotebookText,
+    Plug,
+    Send,
+    Table2,
+    TrendingUp,
+    Users,
+    Zap,
+    type LucideIcon,
+} from 'lucide-react'
 
 interface WizardData {
     problem: string
@@ -10,13 +31,13 @@ interface WizardData {
     output: string
 }
 
-const toolOptions = [
-    { id: 'sheets', label: 'Google Sheets', icon: '📊' },
-    { id: 'slack', label: 'Slack', icon: '💬' },
-    { id: 'notion', label: 'Notion', icon: '📝' },
-    { id: 'email', label: 'Email', icon: '📧' },
-    { id: 'crm', label: 'CRM', icon: '👥' },
-    { id: 'api', label: 'Custom API', icon: '🔌' },
+const toolOptions: Array<{ id: string; label: string; icon: LucideIcon }> = [
+    { id: 'sheets', label: 'Google Sheets', icon: Table2 },
+    { id: 'slack', label: 'Slack', icon: MessageSquare },
+    { id: 'notion', label: 'Notion', icon: NotebookText },
+    { id: 'email', label: 'Email', icon: Mail },
+    { id: 'crm', label: 'CRM', icon: Users },
+    { id: 'api', label: 'Custom API', icon: Plug },
 ]
 
 const frequencyOptions = [
@@ -26,12 +47,12 @@ const frequencyOptions = [
     { id: 'realtime', label: 'Real-time', desc: 'Instant processing' },
 ]
 
-const outputOptions = [
-    { id: 'report', label: 'Report', icon: '📈' },
-    { id: 'alert', label: 'Alert', icon: '🔔' },
-    { id: 'decision', label: 'Decision', icon: '🎯' },
-    { id: 'action', label: 'Action', icon: '⚡' },
-    { id: 'dashboard', label: 'Dashboard', icon: '📊' },
+const outputOptions: Array<{ id: string; label: string; icon: LucideIcon }> = [
+    { id: 'report', label: 'Report', icon: TrendingUp },
+    { id: 'alert', label: 'Alert', icon: Bell },
+    { id: 'decision', label: 'Decision', icon: Goal },
+    { id: 'action', label: 'Action', icon: Zap },
+    { id: 'dashboard', label: 'Dashboard', icon: LayoutDashboard },
 ]
 
 const steps = [
@@ -135,7 +156,7 @@ export default function AutomationWizard() {
                     ${step < s.id ? 'bg-card text-muted' : ''}
                   `}
                                 >
-                                    {step > s.id ? '✓' : s.id}
+                                    {step > s.id ? <Check className="h-4 w-4" aria-hidden="true" /> : s.id}
                                 </button>
                                 {i < steps.length - 1 && (
                                     <div
@@ -171,22 +192,26 @@ export default function AutomationWizard() {
 
                             {step === 2 && (
                                 <div className="grid grid-cols-2 md:grid-cols-3 gap-3">
-                                    {toolOptions.map((tool) => (
-                                        <button
-                                            key={tool.id}
-                                            onClick={() => toggleTool(tool.id)}
-                                            className={`
+                                    {toolOptions.map((tool) => {
+                                        const Icon = tool.icon
+
+                                        return (
+                                            <button
+                                                key={tool.id}
+                                                onClick={() => toggleTool(tool.id)}
+                                                className={`
                         p-4 rounded-xl border transition-all text-left
                         ${data.tools.includes(tool.id)
-                                                    ? 'border-accent bg-accent/10'
-                                                    : 'border-border bg-background hover:border-muted'
-                                                }
+                                                        ? 'border-accent bg-accent/10'
+                                                        : 'border-border bg-background hover:border-muted'
+                                                    }
                       `}
-                                        >
-                                            <span className="text-2xl mb-2 block">{tool.icon}</span>
-                                            <span className="text-sm font-medium">{tool.label}</span>
-                                        </button>
-                                    ))}
+                                            >
+                                                <Icon className="mb-2 h-6 w-6 text-accent" aria-hidden="true" />
+                                                <span className="text-sm font-medium">{tool.label}</span>
+                                            </button>
+                                        )
+                                    })}
                                 </div>
                             )}
 
@@ -213,22 +238,26 @@ export default function AutomationWizard() {
 
                             {step === 4 && (
                                 <div className="grid grid-cols-2 md:grid-cols-3 gap-3">
-                                    {outputOptions.map((out) => (
-                                        <button
-                                            key={out.id}
-                                            onClick={() => setData({ ...data, output: out.id })}
-                                            className={`
+                                    {outputOptions.map((out) => {
+                                        const Icon = out.icon
+
+                                        return (
+                                            <button
+                                                key={out.id}
+                                                onClick={() => setData({ ...data, output: out.id })}
+                                                className={`
                         p-4 rounded-xl border transition-all text-left
                         ${data.output === out.id
-                                                    ? 'border-accent bg-accent/10'
-                                                    : 'border-border bg-background hover:border-muted'
-                                                }
+                                                        ? 'border-accent bg-accent/10'
+                                                        : 'border-border bg-background hover:border-muted'
+                                                    }
                       `}
-                                        >
-                                            <span className="text-2xl mb-2 block">{out.icon}</span>
-                                            <span className="text-sm font-medium">{out.label}</span>
-                                        </button>
-                                    ))}
+                                            >
+                                                <Icon className="mb-2 h-6 w-6 text-accent" aria-hidden="true" />
+                                                <span className="text-sm font-medium">{out.label}</span>
+                                            </button>
+                                        )
+                                    })}
                                 </div>
                             )}
 
@@ -245,9 +274,10 @@ export default function AutomationWizard() {
                                             return (
                                                 <span
                                                     key={toolId}
-                                                    className="px-3 py-1 rounded-full bg-accent/10 text-accent text-sm"
+                                                    className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-accent/10 text-accent text-sm"
                                                 >
-                                                    {tool?.icon} {tool?.label}
+                                                    {tool ? <tool.icon className="h-4 w-4" aria-hidden="true" /> : null}
+                                                    {tool?.label}
                                                 </span>
                                             )
                                         })}
@@ -272,29 +302,34 @@ export default function AutomationWizard() {
                                     <div className="p-6 rounded-xl bg-background border border-accent/30">
                                         <h4 className="text-sm text-accent mb-4">Generated System Blueprint</h4>
                                         <div className="flex items-center justify-center gap-2 text-sm overflow-x-auto">
-                                            <span className="px-3 py-2 rounded-lg bg-amber-500/10 text-amber-500 whitespace-nowrap">
-                                                ⚡ Trigger
+                                            <span className="inline-flex items-center gap-1.5 px-3 py-2 rounded-lg bg-amber-500/10 text-amber-500 whitespace-nowrap">
+                                                <Zap className="h-4 w-4" aria-hidden="true" />
+                                                Trigger
                                             </span>
-                                            <span className="text-muted">→</span>
-                                            <span className="px-3 py-2 rounded-lg bg-purple-500/10 text-purple-500 whitespace-nowrap">
-                                                🔀 Filter
+                                            <ArrowRight className="h-4 w-4 shrink-0 text-muted" aria-hidden="true" />
+                                            <span className="inline-flex items-center gap-1.5 px-3 py-2 rounded-lg bg-purple-500/10 text-purple-500 whitespace-nowrap">
+                                                <GitBranch className="h-4 w-4" aria-hidden="true" />
+                                                Filter
                                             </span>
-                                            <span className="text-muted">→</span>
-                                            <span className="px-3 py-2 rounded-lg bg-accent/10 text-accent whitespace-nowrap">
-                                                🤖 Process
+                                            <ArrowRight className="h-4 w-4 shrink-0 text-muted" aria-hidden="true" />
+                                            <span className="inline-flex items-center gap-1.5 px-3 py-2 rounded-lg bg-accent/10 text-accent whitespace-nowrap">
+                                                <Bot className="h-4 w-4" aria-hidden="true" />
+                                                Process
                                             </span>
-                                            <span className="text-muted">→</span>
-                                            <span className="px-3 py-2 rounded-lg bg-pink-500/10 text-pink-500 whitespace-nowrap">
-                                                📤 {outputOptions.find((o) => o.id === data.output)?.label || 'Output'}
+                                            <ArrowRight className="h-4 w-4 shrink-0 text-muted" aria-hidden="true" />
+                                            <span className="inline-flex items-center gap-1.5 px-3 py-2 rounded-lg bg-pink-500/10 text-pink-500 whitespace-nowrap">
+                                                <Send className="h-4 w-4" aria-hidden="true" />
+                                                {outputOptions.find((o) => o.id === data.output)?.label || 'Output'}
                                             </span>
                                         </div>
                                     </div>
 
                                     <button
                                         onClick={handleLaunch}
-                                        className="w-full py-4 bg-accent hover:bg-accent-dim text-background font-medium rounded-lg transition-all"
+                                        className="inline-flex w-full items-center justify-center gap-2 py-4 bg-accent hover:bg-accent-dim text-background font-medium rounded-lg transition-all"
                                     >
-                                        Launch this project with AvlokAI →
+                                        Launch this project with AvlokAI
+                                        <ArrowRight className="h-4 w-4" aria-hidden="true" />
                                     </button>
                                 </div>
                             )}
@@ -307,22 +342,24 @@ export default function AutomationWizard() {
                             <button
                                 onClick={prevStep}
                                 disabled={step === 1}
-                                className={`px-6 py-2 rounded-lg transition-all ${step === 1
+                                className={`inline-flex items-center gap-2 px-6 py-2 rounded-lg transition-all ${step === 1
                                     ? 'text-muted cursor-not-allowed'
                                     : 'text-foreground hover:bg-card-hover'
                                     }`}
                             >
-                                ← Back
+                                <ArrowLeft className="h-4 w-4" aria-hidden="true" />
+                                Back
                             </button>
                             <button
                                 onClick={nextStep}
                                 disabled={!canProceed()}
-                                className={`px-6 py-2 rounded-lg transition-all ${canProceed()
+                                className={`inline-flex items-center gap-2 px-6 py-2 rounded-lg transition-all ${canProceed()
                                     ? 'bg-accent text-background hover:bg-accent-dim'
                                     : 'bg-muted/20 text-muted cursor-not-allowed'
                                     }`}
                             >
-                                Continue →
+                                Continue
+                                <ArrowRight className="h-4 w-4" aria-hidden="true" />
                             </button>
                         </div>
                     )}

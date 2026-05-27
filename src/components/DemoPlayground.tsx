@@ -2,6 +2,7 @@
 
 import { useState } from 'react'
 import { motion } from 'framer-motion'
+import { BarChart3, BrainCircuit, RefreshCw, Settings } from 'lucide-react'
 
 const mockClassifications = [
     { intent: 'Support Request', confidence: 0.92, sentiment: 'Neutral' },
@@ -58,7 +59,7 @@ export default function DemoPlayground() {
                     <div className="glass-card rounded-2xl p-6">
                         <div className="flex items-center gap-3 mb-6">
                             <div className="w-10 h-10 rounded-xl bg-accent/10 flex items-center justify-center">
-                                <span className="text-xl">🧠</span>
+                                <BrainCircuit className="h-5 w-5 text-accent" aria-hidden="true" />
                             </div>
                             <div>
                                 <h3 className="font-medium">Intent Classifier</h3>
@@ -88,7 +89,7 @@ export default function DemoPlayground() {
                                         transition={{ duration: 1, repeat: Infinity, ease: 'linear' }}
                                         className="inline-block"
                                     >
-                                        ⚙️
+                                        <Settings className="h-4 w-4" aria-hidden="true" />
                                     </motion.span>
                                     Processing...
                                 </span>
@@ -127,7 +128,7 @@ export default function DemoPlayground() {
                     <div className="glass-card rounded-2xl p-6">
                         <div className="flex items-center gap-3 mb-6">
                             <div className="w-10 h-10 rounded-xl bg-blue-500/10 flex items-center justify-center">
-                                <span className="text-xl">📊</span>
+                                <BarChart3 className="h-5 w-5 text-blue-400" aria-hidden="true" />
                             </div>
                             <div>
                                 <h3 className="font-medium">Data Transformer</h3>
@@ -151,8 +152,9 @@ export default function DemoPlayground() {
                             </div>
 
                             <div className="flex justify-center">
-                                <div className="px-4 py-2 rounded-full bg-accent/10 text-accent text-xs font-medium">
-                                    🔄 Transform & Enrich
+                                <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-accent/10 text-accent text-xs font-medium">
+                                    <RefreshCw className="h-3.5 w-3.5" aria-hidden="true" />
+                                    Transform & Enrich
                                 </div>
                             </div>
 

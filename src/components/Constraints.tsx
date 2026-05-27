@@ -1,25 +1,30 @@
 'use client'
 
 import { motion } from 'framer-motion'
+import { Ban, Goal, Package, TriangleAlert, type LucideIcon } from 'lucide-react'
 
-const principles = [
+const principles: Array<{
+    icon: LucideIcon
+    title: string
+    description: string
+}> = [
     {
-        icon: '🚫',
+        icon: Ban,
         title: 'No aimless chatbots.',
         description: 'Every AI component we deploy has a defined purpose, measurable outcomes, and a fallback strategy.',
     },
     {
-        icon: '⚠️',
+        icon: TriangleAlert,
         title: 'No automating broken processes.',
         description: 'Automation amplifies problems. If your workflow is flawed, we fix the foundation first.',
     },
     {
-        icon: '📦',
+        icon: Package,
         title: 'No black-box systems.',
         description: 'Our clients understand how their automation works, why it makes decisions, and how to maintain it.',
     },
     {
-        icon: '🎪',
+        icon: Goal,
         title: 'No demos without purpose.',
         description: "If it won't run in production and solve a real business problem, we don't build it.",
     },
@@ -39,24 +44,28 @@ export default function Constraints() {
                 </div>
 
                 <div className="grid md:grid-cols-2 gap-4">
-                    {principles.map((principle, index) => (
-                        <motion.div
-                            key={index}
-                            initial={{ opacity: 0, x: index % 2 === 0 ? -20 : 20 }}
-                            whileInView={{ opacity: 1, x: 0 }}
-                            viewport={{ once: true, margin: '-50px' }}
-                            transition={{ duration: 0.4, delay: index * 0.1 }}
-                            className="glass-card rounded-xl p-5 hover:bg-card-hover transition-colors"
-                        >
-                            <div className="flex gap-4">
-                                <span className="text-2xl shrink-0">{principle.icon}</span>
-                                <div>
-                                    <h3 className="font-medium mb-1">{principle.title}</h3>
-                                    <p className="text-sm text-muted leading-relaxed">{principle.description}</p>
+                    {principles.map((principle, index) => {
+                        const Icon = principle.icon
+
+                        return (
+                            <motion.div
+                                key={index}
+                                initial={{ opacity: 0, x: index % 2 === 0 ? -20 : 20 }}
+                                whileInView={{ opacity: 1, x: 0 }}
+                                viewport={{ once: true, margin: '-50px' }}
+                                transition={{ duration: 0.4, delay: index * 0.1 }}
+                                className="glass-card rounded-xl p-5 hover:bg-card-hover transition-colors"
+                            >
+                                <div className="flex gap-4">
+                                    <Icon className="mt-0.5 h-6 w-6 shrink-0 text-red-400" aria-hidden="true" />
+                                    <div>
+                                        <h3 className="font-medium mb-1">{principle.title}</h3>
+                                        <p className="text-sm text-muted leading-relaxed">{principle.description}</p>
+                                    </div>
                                 </div>
-                            </div>
-                        </motion.div>
-                    ))}
+                            </motion.div>
+                        )
+                    })}
                 </div>
             </div>
         </section>

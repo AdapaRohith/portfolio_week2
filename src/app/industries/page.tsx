@@ -1,5 +1,6 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
+import { ArrowLeft, ArrowRight, Building2, ExternalLink, Factory, Hospital, MonitorCog, ShoppingCart, Smartphone, type LucideIcon } from 'lucide-react'
 
 export const metadata: Metadata = {
     title: 'Industries We Serve — AvlokAI | AI Automation by Sector',
@@ -18,7 +19,7 @@ export const metadata: Metadata = {
 const industries = [
     {
         id: 'it-services',
-        icon: '💻',
+        icon: MonitorCog,
         name: 'IT Services & Software Development',
         painPoints: 'Software companies drown in repetitive ops — manual lead qualification, timesheet auditing, ticket triage, and fragmented project dashboards. These drain engineering bandwidth and slow growth.',
         howWeDoIt: [
@@ -34,7 +35,7 @@ const industries = [
     },
     {
         id: 'ecommerce',
-        icon: '🛒',
+        icon: ShoppingCart,
         name: 'E-Commerce & Retail',
         painPoints: 'Online retailers juggle inventory across multiple channels, manage thousands of customer reviews, and coordinate fulfillment logistics — all while pricing changes hourly across competitors.',
         howWeDoIt: [
@@ -49,7 +50,7 @@ const industries = [
     },
     {
         id: 'manufacturing',
-        icon: '🏭',
+        icon: Factory,
         name: 'Manufacturing & Logistics',
         painPoints: 'Manufacturing operations lose millions to unplanned downtime, quality defects caught too late, and supply chain blind spots. Traditional monitoring can\'t keep up with the speed of modern production.',
         howWeDoIt: [
@@ -65,7 +66,7 @@ const industries = [
     },
     {
         id: 'healthcare',
-        icon: '🏥',
+        icon: Hospital,
         name: 'Healthcare & Pharma',
         painPoints: 'Healthcare providers spend excessive time on scheduling, insurance claims paperwork, and compliance documentation — time that should go to patient care. Manual processes lead to billing errors and audit risks.',
         howWeDoIt: [
@@ -80,7 +81,7 @@ const industries = [
     },
     {
         id: 'real-estate',
-        icon: '🏗️',
+        icon: Building2,
         name: 'Real Estate & Construction',
         painPoints: 'Real estate operations suffer from lead leakage across inquiry channels, manual listing updates across portals, and construction progress tracking that relies on site visits and phone calls.',
         howWeDoIt: [
@@ -95,7 +96,7 @@ const industries = [
     },
     {
         id: 'smb',
-        icon: '📱',
+        icon: Smartphone,
         name: 'Small & Medium Businesses',
         painPoints: 'Small businesses need automation but can\'t afford enterprise-grade solutions. They struggle with missed follow-ups, manual bookkeeping, inconsistent social media presence, and low Google review counts.',
         howWeDoIt: [
@@ -108,7 +109,17 @@ const industries = [
         accent: 'text-violet-400',
         bg: 'bg-violet-500/5',
     },
-]
+] satisfies Array<{
+    id: string
+    icon: LucideIcon
+    name: string
+    painPoints: string
+    howWeDoIt: Array<{ title: string; desc: string }>
+    examples: string[]
+    color: string
+    accent: string
+    bg: string
+}>
 
 export default function IndustriesPage() {
     return (
@@ -132,32 +143,37 @@ export default function IndustriesPage() {
                     <div className="flex flex-wrap justify-center gap-4">
                         <Link
                             href="/services"
-                            className="px-6 py-3 glass-card hover:bg-card-hover text-foreground text-sm font-medium rounded-lg transition-all"
+                            className="inline-flex items-center gap-2 px-6 py-3 glass-card hover:bg-card-hover text-foreground text-sm font-medium rounded-lg transition-all"
                         >
-                            View All Services →
+                            View All Services
+                            <ArrowRight className="h-4 w-4" aria-hidden="true" />
                         </Link>
                         <a
                             href="https://catalogue.avlokai.com"
                             target="_blank"
                             rel="noopener noreferrer"
-                            className="px-6 py-3 bg-accent hover:bg-accent-dim text-background text-sm font-medium rounded-lg transition-all"
+                            className="inline-flex items-center gap-2 px-6 py-3 bg-accent hover:bg-accent-dim text-background text-sm font-medium rounded-lg transition-all"
                         >
-                            Full Catalogue ↗
+                            Full Catalogue
+                            <ExternalLink className="h-4 w-4" aria-hidden="true" />
                         </a>
                     </div>
                 </div>
 
                 {/* Industry Sections */}
                 <div className="space-y-16">
-                    {industries.map((industry) => (
-                        <section
-                            key={industry.id}
-                            id={industry.id}
-                            className={`glass-card rounded-2xl p-8 md:p-10 border-l-4 ${industry.color}`}
-                        >
+                    {industries.map((industry) => {
+                        const Icon = industry.icon
+
+                        return (
+                            <section
+                                key={industry.id}
+                                id={industry.id}
+                                className={`glass-card rounded-2xl p-8 md:p-10 border-l-4 ${industry.color}`}
+                            >
                             {/* Industry Header */}
                             <div className="flex items-start gap-4 mb-6">
-                                <span className="text-4xl">{industry.icon}</span>
+                                <Icon className={`h-9 w-9 shrink-0 ${industry.accent}`} aria-hidden="true" />
                                 <div>
                                     <h2 className="text-2xl md:text-3xl font-semibold">{industry.name}</h2>
                                     <p className="text-muted mt-2 leading-relaxed max-w-3xl">
@@ -198,9 +214,10 @@ export default function IndustriesPage() {
                             <div className="mt-6 pt-6 border-t border-border flex flex-wrap items-center justify-between gap-4">
                                 <Link
                                     href="/services"
-                                    className="text-sm text-muted hover:text-foreground transition-colors"
+                                    className="inline-flex items-center gap-1 text-sm text-muted hover:text-foreground transition-colors"
                                 >
-                                    ← View all services
+                                    <ArrowLeft className="h-4 w-4" aria-hidden="true" />
+                                    View all services
                                 </Link>
                                 <a
                                     href="https://catalogue.avlokai.com"
@@ -209,13 +226,12 @@ export default function IndustriesPage() {
                                     className={`text-sm font-medium ${industry.accent} hover:underline inline-flex items-center gap-1`}
                                 >
                                     View in catalogue
-                                    <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-                                        <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
-                                    </svg>
+                                    <ArrowRight className="h-4 w-4" aria-hidden="true" />
                                 </a>
                             </div>
                         </section>
-                    ))}
+                        )
+                    })}
                 </div>
 
                 {/* Bottom Navigation */}
@@ -235,9 +251,10 @@ export default function IndustriesPage() {
                         </a>
                         <Link
                             href="/services"
-                            className="px-8 py-4 glass-card hover:bg-card-hover text-foreground font-medium rounded-lg transition-all"
+                            className="inline-flex items-center gap-2 px-8 py-4 glass-card hover:bg-card-hover text-foreground font-medium rounded-lg transition-all"
                         >
-                            Browse Services →
+                            Browse Services
+                            <ArrowRight className="h-4 w-4" aria-hidden="true" />
                         </Link>
                     </div>
                 </div>

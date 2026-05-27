@@ -1,31 +1,37 @@
 'use client'
 
 import { motion } from 'framer-motion'
+import { Map, Search, TrendingUp, Wrench, type LucideIcon } from 'lucide-react'
 
-const steps = [
+const steps: Array<{
+    number: string
+    title: string
+    description: string
+    icon: LucideIcon
+}> = [
     {
         number: '01',
         title: 'Identify Friction',
         description: 'Our team audits your workflows to pinpoint repetitive, manual bottlenecks that drain productivity.',
-        icon: '🔍',
+        icon: Search,
     },
     {
         number: '02',
         title: 'Map the System',
         description: 'We chart every data flow, dependency, and edge case — so nothing is left to chance before development begins.',
-        icon: '🗺️',
+        icon: Map,
     },
     {
         number: '03',
         title: 'Automate with Guardrails',
         description: 'Solutions are built incrementally with fail-safes, monitoring, and human-in-the-loop checkpoints where needed.',
-        icon: '🔧',
+        icon: Wrench,
     },
     {
         number: '04',
         title: 'Monitor & Optimize',
         description: 'Post-launch, we continuously track performance metrics and iterate based on real operational data.',
-        icon: '📈',
+        icon: TrendingUp,
     },
 ]
 
@@ -43,30 +49,34 @@ export default function ProcessFlow() {
                 </div>
 
                 <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-                    {steps.map((step, index) => (
-                        <motion.div
-                            key={step.number}
-                            initial={{ opacity: 0, y: 20 }}
-                            whileInView={{ opacity: 1, y: 0 }}
-                            viewport={{ once: true, margin: '-50px' }}
-                            transition={{ duration: 0.4, delay: index * 0.1 }}
-                            className="relative"
-                        >
-                            <div className="glass-card rounded-2xl p-6 h-full hover:bg-card-hover transition-colors">
-                                <div className="flex items-center gap-3 mb-4">
-                                    <span className="text-3xl">{step.icon}</span>
-                                    <span className="text-sm font-mono text-accent">{step.number}</span>
-                                </div>
-                                <h3 className="text-lg font-medium mb-2">{step.title}</h3>
-                                <p className="text-sm text-muted leading-relaxed">{step.description}</p>
-                            </div>
+                    {steps.map((step, index) => {
+                        const Icon = step.icon
 
-                            {/* Connector line */}
-                            {index < steps.length - 1 && (
-                                <div className="hidden lg:block absolute top-1/2 -right-3 w-6 h-0.5 bg-border" />
-                            )}
-                        </motion.div>
-                    ))}
+                        return (
+                            <motion.div
+                                key={step.number}
+                                initial={{ opacity: 0, y: 20 }}
+                                whileInView={{ opacity: 1, y: 0 }}
+                                viewport={{ once: true, margin: '-50px' }}
+                                transition={{ duration: 0.4, delay: index * 0.1 }}
+                                className="relative"
+                            >
+                                <div className="glass-card rounded-2xl p-6 h-full hover:bg-card-hover transition-colors">
+                                    <div className="flex items-center gap-3 mb-4">
+                                        <Icon className="h-7 w-7 text-accent" aria-hidden="true" />
+                                        <span className="text-sm font-mono text-accent">{step.number}</span>
+                                    </div>
+                                    <h3 className="text-lg font-medium mb-2">{step.title}</h3>
+                                    <p className="text-sm text-muted leading-relaxed">{step.description}</p>
+                                </div>
+
+                                {/* Connector line */}
+                                {index < steps.length - 1 && (
+                                    <div className="hidden lg:block absolute top-1/2 -right-3 w-6 h-0.5 bg-border" />
+                                )}
+                            </motion.div>
+                        )
+                    })}
                 </div>
             </div>
         </section>

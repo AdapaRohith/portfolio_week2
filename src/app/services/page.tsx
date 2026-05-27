@@ -1,5 +1,6 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
+import { ArrowRight, Building2, Check, ExternalLink, Factory, Hospital, Map, MonitorCog, Search, ShoppingCart, Smartphone, TrendingUp, Wrench, type LucideIcon } from 'lucide-react'
 
 export const metadata: Metadata = {
     title: 'Our Services — AvlokAI | AI Automation Solutions for Every Business',
@@ -17,7 +18,7 @@ export const metadata: Metadata = {
 
 const serviceCategories = [
     {
-        icon: '💻',
+        icon: MonitorCog,
         title: 'IT Services & Software Development',
         slug: 'it-services',
         description: 'Streamline your development lifecycle with AI-powered lead qualification, automated invoicing, bug triage, performance dashboards, and resource allocation.',
@@ -33,7 +34,7 @@ const serviceCategories = [
         textColor: 'text-blue-400',
     },
     {
-        icon: '🛒',
+        icon: ShoppingCart,
         title: 'E-Commerce & Retail',
         slug: 'ecommerce',
         description: 'Automate omnichannel inventory sync, AI-powered review analysis, order fulfillment, and pricing intelligence to scale your online retail operations.',
@@ -47,7 +48,7 @@ const serviceCategories = [
         textColor: 'text-amber-400',
     },
     {
-        icon: '🏭',
+        icon: Factory,
         title: 'Manufacturing & Logistics',
         slug: 'manufacturing',
         description: 'Reduce downtime and optimize supply chains with predictive maintenance, quality control via computer vision, and intelligent purchase order management.',
@@ -62,7 +63,7 @@ const serviceCategories = [
         textColor: 'text-slate-400',
     },
     {
-        icon: '🏥',
+        icon: Hospital,
         title: 'Healthcare & Pharma',
         slug: 'healthcare',
         description: 'Automate patient scheduling, claims processing, and HIPAA compliance auditing — so your medical staff can focus on patient care.',
@@ -76,7 +77,7 @@ const serviceCategories = [
         textColor: 'text-rose-400',
     },
     {
-        icon: '🏗️',
+        icon: Building2,
         title: 'Real Estate & Construction',
         slug: 'real-estate',
         description: 'From AI-powered lead management to property listing sync and site inspection tracking, automate the full real estate lifecycle.',
@@ -91,7 +92,7 @@ const serviceCategories = [
         textColor: 'text-emerald-400',
     },
     {
-        icon: '📱',
+        icon: Smartphone,
         title: 'SMB Micro-Automations',
         slug: 'smb',
         description: 'Affordable, ready-to-deploy automations for small businesses: WhatsApp broadcasts, Google review requests, appointment reminders, daily sales summaries, and more.',
@@ -106,6 +107,13 @@ const serviceCategories = [
         borderColor: 'border-violet-500/30',
         textColor: 'text-violet-400',
     },
+]
+
+const deliverySteps: Array<{ step: string; title: string; desc: string; icon: LucideIcon }> = [
+    { step: '01', title: 'Audit', desc: 'We map your current workflows and identify automation opportunities.', icon: Search },
+    { step: '02', title: 'Architect', desc: 'Custom system blueprint with data flows, edge cases, and fail-safes.', icon: Map },
+    { step: '03', title: 'Build', desc: 'Incremental delivery with testing, monitoring, and human-in-the-loop.', icon: Wrench },
+    { step: '04', title: 'Optimize', desc: 'Continuous performance tracking and iteration based on real data.', icon: TrendingUp },
 ]
 
 export default function ServicesPage() {
@@ -130,31 +138,36 @@ export default function ServicesPage() {
                     <div className="flex flex-wrap justify-center gap-4">
                         <Link
                             href="/industries"
-                            className="px-6 py-3 glass-card hover:bg-card-hover text-foreground text-sm font-medium rounded-lg transition-all"
+                            className="inline-flex items-center gap-2 px-6 py-3 glass-card hover:bg-card-hover text-foreground text-sm font-medium rounded-lg transition-all"
                         >
-                            Browse by Industry →
+                            Browse by Industry
+                            <ArrowRight className="h-4 w-4" aria-hidden="true" />
                         </Link>
                         <a
                             href="https://catalogue.avlokai.com"
                             target="_blank"
                             rel="noopener noreferrer"
-                            className="px-6 py-3 bg-accent hover:bg-accent-dim text-background text-sm font-medium rounded-lg transition-all"
+                            className="inline-flex items-center gap-2 px-6 py-3 bg-accent hover:bg-accent-dim text-background text-sm font-medium rounded-lg transition-all"
                         >
-                            View Full Catalogue ↗
+                            View Full Catalogue
+                            <ExternalLink className="h-4 w-4" aria-hidden="true" />
                         </a>
                     </div>
                 </div>
 
                 {/* Service Cards Grid */}
                 <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mb-20">
-                    {serviceCategories.map((service) => (
-                        <article
-                            key={service.slug}
-                            id={`service-${service.slug}`}
-                            className={`glass-card rounded-2xl p-6 hover:bg-card-hover transition-all duration-300 border-l-4 ${service.borderColor} group`}
-                        >
+                    {serviceCategories.map((service) => {
+                        const Icon = service.icon
+
+                        return (
+                            <article
+                                key={service.slug}
+                                id={`service-${service.slug}`}
+                                className={`glass-card rounded-2xl p-6 hover:bg-card-hover transition-all duration-300 border-l-4 ${service.borderColor} group`}
+                            >
                             <div className={`w-12 h-12 rounded-xl bg-gradient-to-br ${service.color} flex items-center justify-center text-2xl mb-4`}>
-                                {service.icon}
+                                <Icon className={`h-6 w-6 ${service.textColor}`} aria-hidden="true" />
                             </div>
 
                             <h2 className="text-lg font-semibold mb-3">{service.title}</h2>
@@ -166,7 +179,7 @@ export default function ServicesPage() {
                             <ul className="space-y-2 mb-6">
                                 {service.highlights.map((item) => (
                                     <li key={item} className="flex items-start gap-2 text-sm text-muted">
-                                        <span className={`mt-0.5 ${service.textColor}`}>•</span>
+                                        <Check className={`mt-0.5 h-4 w-4 shrink-0 ${service.textColor}`} aria-hidden="true" />
                                         {item}
                                     </li>
                                 ))}
@@ -179,12 +192,11 @@ export default function ServicesPage() {
                                 className={`text-sm font-medium ${service.textColor} group-hover:underline inline-flex items-center gap-1`}
                             >
                                 View in Catalogue
-                                <svg className="w-4 h-4 transition-transform group-hover:translate-x-1" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-                                    <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
-                                </svg>
+                                <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" aria-hidden="true" />
                             </a>
                         </article>
-                    ))}
+                        )
+                    })}
                 </div>
 
                 {/* How We Work Section */}
@@ -193,19 +205,18 @@ export default function ServicesPage() {
                         How every project is <span className="gradient-text">delivered</span>
                     </h2>
                     <div className="grid md:grid-cols-4 gap-6">
-                        {[
-                            { step: '01', title: 'Audit', desc: 'We map your current workflows and identify automation opportunities.', icon: '🔍' },
-                            { step: '02', title: 'Architect', desc: 'Custom system blueprint with data flows, edge cases, and fail-safes.', icon: '🗺️' },
-                            { step: '03', title: 'Build', desc: 'Incremental delivery with testing, monitoring, and human-in-the-loop.', icon: '🔧' },
-                            { step: '04', title: 'Optimize', desc: 'Continuous performance tracking and iteration based on real data.', icon: '📈' },
-                        ].map((item) => (
-                            <div key={item.step} className="text-center">
-                                <span className="text-3xl block mb-3">{item.icon}</span>
+                        {deliverySteps.map((item) => {
+                            const Icon = item.icon
+
+                            return (
+                                <div key={item.step} className="text-center">
+                                <Icon className="mx-auto mb-3 h-7 w-7 text-accent" aria-hidden="true" />
                                 <span className="text-xs font-mono text-accent">{item.step}</span>
                                 <h3 className="font-medium mt-1 mb-2">{item.title}</h3>
                                 <p className="text-sm text-muted">{item.desc}</p>
                             </div>
-                        ))}
+                            )
+                        })}
                     </div>
                 </section>
 
@@ -226,9 +237,10 @@ export default function ServicesPage() {
                         </a>
                         <Link
                             href="/industries"
-                            className="px-8 py-4 glass-card hover:bg-card-hover text-foreground font-medium rounded-lg transition-all"
+                            className="inline-flex items-center gap-2 px-8 py-4 glass-card hover:bg-card-hover text-foreground font-medium rounded-lg transition-all"
                         >
-                            Explore Industries →
+                            Explore Industries
+                            <ArrowRight className="h-4 w-4" aria-hidden="true" />
                         </Link>
                     </div>
                 </div>
