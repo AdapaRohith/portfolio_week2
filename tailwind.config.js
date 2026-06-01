@@ -12,6 +12,7 @@ module.exports = {
                 foreground: 'var(--foreground)',
                 accent: 'var(--accent)',
                 'accent-dim': 'var(--accent-dim)',
+                'accent-soft': 'var(--accent-soft)',
                 muted: 'var(--muted)',
                 border: 'var(--border)',
                 card: 'var(--card)',
@@ -19,6 +20,7 @@ module.exports = {
             },
             fontFamily: {
                 sans: ['Inter', 'system-ui', 'sans-serif'],
+                display: ['Space Grotesk', 'Inter', 'sans-serif'],
                 mono: ['JetBrains Mono', 'monospace'],
             },
         },

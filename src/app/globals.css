@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&family=Space+Grotesk:wght@400;500;600;700&display=swap');
 
 @tailwind base;
 @tailwind components;
@@ -7,8 +7,9 @@
 :root {
     --background: #fafafa;
     --foreground: #18181b;
-    --accent: #3f3f46;
-    --accent-dim: #27272a;
+    --accent: #2563eb;
+    --accent-dim: #1d4ed8;
+    --accent-soft: rgba(37, 99, 235, 0.08);
     --muted: #71717a;
     --border: #e4e4e7;
     --card: #ffffff;
@@ -18,8 +19,9 @@
 .dark {
     --background: #09090b;
     --foreground: #fafafa;
-    --accent: #e4e4e7;
-    --accent-dim: #a1a1aa;
+    --accent: #3b82f6;
+    --accent-dim: #60a5fa;
+    --accent-soft: rgba(59, 130, 246, 0.12);
     --muted: #a1a1aa;
     --border: #27272a;
     --card: #18181b;
@@ -71,7 +73,10 @@ body {
 
 /* Utility classes */
 .gradient-text {
-    color: var(--foreground);
+    background: linear-gradient(135deg, var(--accent) 0%, var(--accent-dim) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
 }
 
 .glass-card {
@@ -143,13 +148,4 @@ textarea:focus-visible {
 /* Selection color */
 ::selection {
     background: color-mix(in srgb, var(--accent) 30%, transparent);
-}
-
-/* Neutralize 3D Spline models to match minimal palette */
-.spline-neutral {
-    filter: grayscale(1) contrast(0.95);
-}
-
-.dark .spline-neutral {
-    filter: grayscale(1) brightness(0.9);
 }
