@@ -2,6 +2,7 @@ import type { Metadata } from 'next'
 import './globals.css'
 import Header from '@/components/Header'
 import FloatingPhonePopup from '@/components/FloatingPhonePopup'
+import { ThemeProvider } from '@/components/ThemeProvider'
 
 export const metadata: Metadata = {
     metadataBase: new URL('https://avlokai.com'),
@@ -97,15 +98,24 @@ export default function RootLayout({
     children: React.ReactNode
 }) {
     return (
-        <html lang="en">
+        <html lang="en" suppressHydrationWarning>
+            <head>
+                <script
+                    dangerouslySetInnerHTML={{
+                        __html: `(function(){try{var t=localStorage.getItem('theme');if(!t){t=window.matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light';}if(t==='dark'){document.documentElement.classList.add('dark');}}catch(e){}})();`,
+                    }}
+                />
+            </head>
             <body className="min-h-screen bg-background text-foreground">
                 <script
                     type="application/ld+json"
                     dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
                 />
-                <Header />
-                {children}
-                <FloatingPhonePopup />
+                <ThemeProvider>
+                    <Header />
+                    {children}
+                    <FloatingPhonePopup />
+                </ThemeProvider>
             </body>
         </html>
     )
