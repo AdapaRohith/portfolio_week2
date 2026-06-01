@@ -5,14 +5,29 @@
 @tailwind utilities;
 
 :root {
-    --background: #000000;
-    --foreground: #fafafa;
-    --accent: #10b981;
-    --accent-dim: #059669;
+    --background: #fafafa;
+    --foreground: #18181b;
+    --accent: #3f3f46;
+    --accent-dim: #27272a;
     --muted: #71717a;
+    --border: #e4e4e7;
+    --card: #ffffff;
+    --card-hover: #f4f4f5;
+}
+
+.dark {
+    --background: #09090b;
+    --foreground: #fafafa;
+    --accent: #e4e4e7;
+    --accent-dim: #a1a1aa;
+    --muted: #a1a1aa;
     --border: #27272a;
     --card: #18181b;
-    --card-hover: #1f1f23;
+    --card-hover: #27272a;
+}
+
+html {
+    color-scheme: light dark;
 }
 
 * {
@@ -56,14 +71,11 @@ body {
 
 /* Utility classes */
 .gradient-text {
-    background: linear-gradient(135deg, var(--accent) 0%, #34d399 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
+    color: var(--foreground);
 }
 
 .glass-card {
-    background: rgba(24, 24, 27, 0.8);
+    background: color-mix(in srgb, var(--card) 80%, transparent);
     backdrop-filter: blur(12px);
     border: 1px solid var(--border);
 }
@@ -130,5 +142,14 @@ textarea:focus-visible {
 
 /* Selection color */
 ::selection {
-    background: rgba(16, 185, 129, 0.3);
+    background: color-mix(in srgb, var(--accent) 30%, transparent);
+}
+
+/* Neutralize 3D Spline models to match minimal palette */
+.spline-neutral {
+    filter: grayscale(1) contrast(0.95);
+}
+
+.dark .spline-neutral {
+    filter: grayscale(1) brightness(0.9);
 }
