@@ -97,7 +97,7 @@ export default function DataDeletion() {
                             </p>
                             <a
                                 href="mailto:avlokaibusiness@gmail.com"
-                                className="inline-block py-4 px-10 rounded-full bg-accent text-background font-bold text-lg hover:shadow-[0_0_30px_rgba(16,185,129,0.4)] transition-all transform hover:-translate-y-1"
+                                className="inline-block py-4 px-10 rounded-full bg-accent text-background font-bold text-lg hover:shadow-lg transition-all transform hover:-translate-y-1"
                             >
                                 Contact Support
                             </a>

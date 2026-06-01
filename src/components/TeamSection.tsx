@@ -23,7 +23,7 @@ const teamMembers: TeamMember[] = [
         description:
             'Visionary leader driving innovation in AI-powered automation. Passionate about building intelligent systems that transform businesses and deliver measurable impact.',
         portfolioUrl: 'https://sushanth.avlokai.com/',
-        gradient: 'from-emerald-500 to-teal-400',
+        gradient: 'from-zinc-600 to-zinc-400',
         hierarchyClass: 'md:order-1',
     },
     {
@@ -34,7 +34,7 @@ const teamMembers: TeamMember[] = [
         description:
             'Technical architect with deep expertise in scalable systems and machine learning. Committed to engineering excellence and turning complex challenges into elegant solutions.',
         portfolioUrl: 'https://rohith.avlokai.com/',
-        gradient: 'from-teal-400 to-cyan-400',
+        gradient: 'from-zinc-600 to-zinc-400',
         hierarchyClass: 'md:order-2',
     },
     {
@@ -45,7 +45,7 @@ const teamMembers: TeamMember[] = [
         description:
             'Commanding the entire sales engine at AvlokAI. Leads and empowers the sales team to drive growth, forge strategic partnerships, and bring intelligent automation to enterprises at scale.',
         portfolioUrl: 'https://nathaniel.avlokai.com/',
-        gradient: 'from-cyan-400 to-blue-500',
+        gradient: 'from-zinc-600 to-zinc-400',
         hierarchyClass: 'md:order-3 md:col-span-2 md:mx-auto md:w-[calc(50%-1rem)]',
     },
 ]
@@ -114,7 +114,7 @@ function TeamCard({ member }: { member: TeamMember }) {
         <Wrapper>
             <div
                 className="glass-card rounded-2xl p-8 transition-all duration-500 ease-out
-                    hover:border-accent/40 hover:shadow-[0_0_40px_rgba(16,185,129,0.08)]
+                    hover:border-accent/40 hover:shadow-lg
                     hover:-translate-y-1"
             >
                 {/* Avatar */}

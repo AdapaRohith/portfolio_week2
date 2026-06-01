@@ -302,12 +302,12 @@ export default function AutomationWizard() {
                                     <div className="p-6 rounded-xl bg-background border border-accent/30">
                                         <h4 className="text-sm text-accent mb-4">Generated System Blueprint</h4>
                                         <div className="flex items-center justify-center gap-2 text-sm overflow-x-auto">
-                                            <span className="inline-flex items-center gap-1.5 px-3 py-2 rounded-lg bg-amber-500/10 text-amber-500 whitespace-nowrap">
+                                            <span className="inline-flex items-center gap-1.5 px-3 py-2 rounded-lg bg-accent/10 text-accent whitespace-nowrap">
                                                 <Zap className="h-4 w-4" aria-hidden="true" />
                                                 Trigger
                                             </span>
                                             <ArrowRight className="h-4 w-4 shrink-0 text-muted" aria-hidden="true" />
-                                            <span className="inline-flex items-center gap-1.5 px-3 py-2 rounded-lg bg-purple-500/10 text-purple-500 whitespace-nowrap">
+                                            <span className="inline-flex items-center gap-1.5 px-3 py-2 rounded-lg bg-accent/10 text-accent whitespace-nowrap">
                                                 <GitBranch className="h-4 w-4" aria-hidden="true" />
                                                 Filter
                                             </span>
@@ -317,7 +317,7 @@ export default function AutomationWizard() {
                                                 Process
                                             </span>
                                             <ArrowRight className="h-4 w-4 shrink-0 text-muted" aria-hidden="true" />
-                                            <span className="inline-flex items-center gap-1.5 px-3 py-2 rounded-lg bg-pink-500/10 text-pink-500 whitespace-nowrap">
+                                            <span className="inline-flex items-center gap-1.5 px-3 py-2 rounded-lg bg-accent/10 text-accent whitespace-nowrap">
                                                 <Send className="h-4 w-4" aria-hidden="true" />
                                                 {outputOptions.find((o) => o.id === data.output)?.label || 'Output'}
                                             </span>

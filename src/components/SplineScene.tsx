@@ -48,7 +48,7 @@ export default function SplineScene({ scene, className }: SplineSceneProps) {
     return (
         <div
             ref={containerRef}
-            className={`spline-scene-container relative w-full h-full flex items-center justify-center ${className ?? ''}`}
+            className={`spline-scene-container spline-neutral relative w-full h-full flex items-center justify-center ${className ?? ''}`}
             style={{ touchAction: 'pan-y' }}
         >
             {/* Loading indicator */}

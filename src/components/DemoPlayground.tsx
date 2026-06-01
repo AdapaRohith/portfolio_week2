@@ -34,11 +34,11 @@ export default function DemoPlayground() {
     const getSentimentColor = (sentiment: string) => {
         switch (sentiment) {
             case 'Positive':
-                return 'text-green-400'
+                return 'text-foreground font-semibold'
             case 'Negative':
-                return 'text-red-400'
+                return 'text-muted'
             default:
-                return 'text-yellow-400'
+                return 'text-muted'
         }
     }
 
@@ -127,8 +127,8 @@ export default function DemoPlayground() {
                     {/* Data Transform Demo */}
                     <div className="glass-card rounded-2xl p-6">
                         <div className="flex items-center gap-3 mb-6">
-                            <div className="w-10 h-10 rounded-xl bg-blue-500/10 flex items-center justify-center">
-                                <BarChart3 className="h-5 w-5 text-blue-400" aria-hidden="true" />
+                            <div className="w-10 h-10 rounded-xl bg-accent/10 flex items-center justify-center">
+                                <BarChart3 className="h-5 w-5 text-accent" aria-hidden="true" />
                             </div>
                             <div>
                                 <h3 className="font-medium">Data Transformer</h3>

@@ -14,11 +14,11 @@ interface CustomNodeData extends Record<string, unknown> {
 }
 
 const nodeStyles: Record<NodeType, { icon: LucideIcon; color: string; bg: string }> = {
-    trigger: { icon: Zap, color: '#f59e0b', bg: 'rgba(245, 158, 11, 0.1)' },
-    logic: { icon: GitBranch, color: '#8b5cf6', bg: 'rgba(139, 92, 246, 0.1)' },
-    ai: { icon: Bot, color: '#10b981', bg: 'rgba(16, 185, 129, 0.1)' },
-    data: { icon: BarChart3, color: '#3b82f6', bg: 'rgba(59, 130, 246, 0.1)' },
-    output: { icon: Send, color: '#ec4899', bg: 'rgba(236, 72, 153, 0.1)' },
+    trigger: { icon: Zap, color: '#71717a', bg: 'rgba(113, 113, 122, 0.1)' },
+    logic: { icon: GitBranch, color: '#71717a', bg: 'rgba(113, 113, 122, 0.1)' },
+    ai: { icon: Bot, color: '#71717a', bg: 'rgba(113, 113, 122, 0.1)' },
+    data: { icon: BarChart3, color: '#71717a', bg: 'rgba(113, 113, 122, 0.1)' },
+    output: { icon: Send, color: '#71717a', bg: 'rgba(113, 113, 122, 0.1)' },
 }
 
 interface CustomNodeProps {
