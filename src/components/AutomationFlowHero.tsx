@@ -23,7 +23,7 @@ export default function AutomationFlowHero({ onPrimaryCTA, onSecondaryCTA }: Pro
                     </motion.p>
                     <motion.div variants={fadeUp} className="flex flex-col sm:flex-row gap-4">
                         <button onClick={onPrimaryCTA}
-                            className="px-7 py-3.5 bg-accent hover:bg-accent-dim text-white font-medium rounded-lg transition-colors inline-flex items-center justify-center gap-2">
+                            className="px-7 py-3.5 bg-accent hover:bg-accent-dim text-background font-medium rounded-lg transition-colors inline-flex items-center justify-center gap-2">
                             Start a project <ArrowRight className="h-4 w-4" aria-hidden="true" />
                         </button>
                         <button onClick={onSecondaryCTA}

@@ -20,7 +20,7 @@ export default function FinalCTA() {
                 </p>
                 <div className="flex flex-col sm:flex-row gap-4 justify-center">
                     <a href={GMAIL} target="_blank" rel="noopener noreferrer"
-                        className="px-7 py-3.5 bg-accent hover:bg-accent-dim text-white font-medium rounded-lg transition-colors inline-flex items-center justify-center gap-2">
+                        className="px-7 py-3.5 bg-accent hover:bg-accent-dim text-background font-medium rounded-lg transition-colors inline-flex items-center justify-center gap-2">
                         <Mail className="h-4 w-4" aria-hidden="true" /> Contact our team <ArrowRight className="h-4 w-4" aria-hidden="true" />
                     </a>
                     <a href="tel:+919346672015"

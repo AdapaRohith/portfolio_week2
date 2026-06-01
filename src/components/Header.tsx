@@ -75,7 +75,7 @@ export default function Header() {
                     </button>
                     <a
                         href="mailto:avlokaibusiness@gmail.com"
-                        className="px-4 py-2 bg-accent hover:bg-accent-dim text-white text-sm font-medium rounded-lg transition-all"
+                        className="px-4 py-2 bg-accent hover:bg-accent-dim text-background text-sm font-medium rounded-lg transition-all"
                     >
                         Contact Us
                     </a>
@@ -141,7 +141,7 @@ export default function Header() {
                             </button>
                             <a
                                 href="mailto:avlokaibusiness@gmail.com"
-                                className="px-4 py-2 bg-accent hover:bg-accent-dim text-white text-sm font-medium rounded-lg transition-all text-center"
+                                className="px-4 py-2 bg-accent hover:bg-accent-dim text-background text-sm font-medium rounded-lg transition-all text-center"
                             >
                                 Contact Us
                             </a>
