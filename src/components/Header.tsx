@@ -4,6 +4,8 @@ import Image from 'next/image'
 import Link from 'next/link'
 import { useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
+import { Sun, Moon } from 'lucide-react'
+import { useTheme } from '@/components/ThemeProvider'
 
 const navLinks = [
     { href: '/services', label: 'Services' },
@@ -13,6 +15,7 @@ const navLinks = [
 
 export default function Header() {
     const [menuOpen, setMenuOpen] = useState(false)
+    const { theme, toggleTheme } = useTheme()
 
     return (
         <motion.header
@@ -62,6 +65,13 @@ export default function Header() {
                             </Link>
                         )
                     ))}
+                    <button
+                        onClick={toggleTheme}
+                        className="text-muted hover:text-foreground transition-colors p-2 rounded-lg"
+                        aria-label={theme === 'dark' ? 'Switch to light mode' : 'Switch to dark mode'}
+                    >
+                        {theme === 'dark' ? <Sun className="w-5 h-5" /> : <Moon className="w-5 h-5" />}
+                    </button>
                     <a
                         href="mailto:avlokaibusiness@gmail.com"
                         className="px-4 py-2 bg-accent hover:bg-accent-dim text-background text-sm font-medium rounded-lg transition-all"
@@ -120,6 +130,14 @@ export default function Header() {
                                     </Link>
                                 )
                             ))}
+                            <button
+                                onClick={() => { toggleTheme(); setMenuOpen(false) }}
+                                className="flex items-center gap-2 text-sm text-muted hover:text-foreground transition-colors py-2"
+                                aria-label={theme === 'dark' ? 'Switch to light mode' : 'Switch to dark mode'}
+                            >
+                                {theme === 'dark' ? <Sun className="w-4 h-4" /> : <Moon className="w-4 h-4" />}
+                                {theme === 'dark' ? 'Light mode' : 'Dark mode'}
+                            </button>
                             <a
                                 href="mailto:avlokaibusiness@gmail.com"
                                 className="px-4 py-2 bg-accent hover:bg-accent-dim text-background text-sm font-medium rounded-lg transition-all text-center"
