@@ -178,7 +178,7 @@ export default function FlowDiagram() {
                         zoomOnDoubleClick={false}
                         nodesDraggable={!isMobile}
                     >
-                        <Background color="#27272a" gap={20} size={1} />
+                        <Background color="var(--border)" gap={20} size={1} />
                     </ReactFlow>
 
                     {/* Custom Zoom Controls */}
