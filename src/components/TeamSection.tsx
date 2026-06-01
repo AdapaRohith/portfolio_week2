@@ -1,193 +1,49 @@
 'use client'
 
-import React, { useState } from 'react'
 import Image from 'next/image'
+import Link from 'next/link'
+import { motion } from 'framer-motion'
+import { ArrowUpRight } from 'lucide-react'
+import { fadeUp, staggerContainer, inView } from '@/lib/motion'
 
-interface TeamMember {
-    name: string
-    role: string
-    initials: string
-    description: string
-    portfolioUrl?: string
-    gradient: string
-    image?: string
-    hierarchyClass?: string
-}
+interface Member { name: string; role: string; image: string; bio: string; url?: string }
 
-const teamMembers: TeamMember[] = [
-    {
-        name: 'Sushanth Kasturi',
-        role: 'Founder & CEO',
-        initials: 'SK',
-        image: '/profile.jpg',
-        description:
-            'Visionary leader driving innovation in AI-powered automation. Passionate about building intelligent systems that transform businesses and deliver measurable impact.',
-        portfolioUrl: 'https://sushanth.avlokai.com/',
-        gradient: 'from-zinc-600 to-zinc-400',
-        hierarchyClass: 'md:order-1',
-    },
-    {
-        name: 'Rohith',
-        role: 'Co-Founder & CTO',
-        initials: 'R',
-        image: '/aboutphoto.png',
-        description:
-            'Technical architect with deep expertise in scalable systems and machine learning. Committed to engineering excellence and turning complex challenges into elegant solutions.',
-        portfolioUrl: 'https://rohith.avlokai.com/',
-        gradient: 'from-zinc-600 to-zinc-400',
-        hierarchyClass: 'md:order-2',
-    },
-    {
-        name: 'Nathaniel Francis',
-        role: 'Chief Of Sales',
-        initials: 'NF',
-        image: '/nathan.jpg',
-        description:
-            'Commanding the entire sales engine at AvlokAI. Leads and empowers the sales team to drive growth, forge strategic partnerships, and bring intelligent automation to enterprises at scale.',
-        portfolioUrl: 'https://nathaniel.avlokai.com/',
-        gradient: 'from-zinc-600 to-zinc-400',
-        hierarchyClass: 'md:order-3 md:col-span-2 md:mx-auto md:w-[calc(50%-1rem)]',
-    },
+const team: Member[] = [
+    { name: 'Sushanth Kasturi', role: 'Founder & CEO', image: '/profile.jpg', bio: 'Drives innovation in AI-powered automation and builds systems that deliver measurable impact.', url: 'https://sushanth.avlokai.com/' },
+    { name: 'Rohith', role: 'Co-Founder & CTO', image: '/aboutphoto.png', bio: 'Technical architect in scalable systems and machine learning. Turns complex challenges into elegant solutions.', url: 'https://rohith.avlokai.com/' },
+    { name: 'Nathaniel Francis', role: 'Chief of Sales', image: '/nathan.jpg', bio: 'Leads the sales engine — forging partnerships and bringing intelligent automation to enterprises at scale.', url: 'https://nathaniel.avlokai.com/' },
 ]
 
 export default function TeamSection() {
     return (
-        <section className="relative py-24 px-6 overflow-hidden">
-            {/* Subtle background glow */}
-            <div className="absolute inset-0 pointer-events-none">
-                <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-accent/5 rounded-full blur-[120px]" />
-            </div>
-
-            <div className="max-w-5xl mx-auto relative z-10">
-                {/* Section heading */}
-                <div className="text-center mb-16">
-                    <p className="text-accent font-mono text-sm tracking-widest uppercase mb-3">
-                        The Team
-                    </p>
-                    <h2 className="text-4xl md:text-5xl font-bold tracking-tight">
-                        Meet the{' '}
-                        <span className="gradient-text">Minds Behind</span>
-                    </h2>
-                    <p className="mt-4 text-muted max-w-xl mx-auto text-lg">
-                        The people architecting intelligent automation for the future.
-                    </p>
-                </div>
-
-                {/* Team cards */}
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:items-start">
-                    {teamMembers.map((member) => (
-                        <TeamCard key={member.role} member={member} />
-                    ))}
-                </div>
+        <section className="py-24 px-6 bg-card/40">
+            <div className="max-w-6xl mx-auto">
+                <p className="font-mono text-xs tracking-widest uppercase text-accent mb-3">Team</p>
+                <h2 className="font-display text-3xl md:text-5xl font-bold tracking-tight mb-12">The people behind it.</h2>
+                <motion.div variants={staggerContainer} initial="hidden" whileInView="show" viewport={inView}
+                    className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
+                    {team.map((m) => {
+                        const card = (
+                            <div className="group glass-card rounded-2xl p-6 h-full transition-all hover:-translate-y-1 hover:border-accent/40">
+                                <div className="flex items-center gap-4 mb-4">
+                                    <div className="relative w-16 h-16 rounded-full overflow-hidden border border-border">
+                                        <Image src={m.image} alt={`${m.name} — ${m.role}`} fill sizes="64px" className="object-cover" />
+                                    </div>
+                                    <div>
+                                        <h3 className="font-display font-semibold">{m.name}</h3>
+                                        <p className="font-mono text-xs text-accent">{m.role}</p>
+                                    </div>
+                                    {m.url && <ArrowUpRight className="h-4 w-4 text-muted ml-auto opacity-0 group-hover:opacity-100 transition-opacity" aria-hidden="true" />}
+                                </div>
+                                <p className="text-sm text-muted">{m.bio}</p>
+                            </div>
+                        )
+                        return m.url
+                            ? <motion.div key={m.name} variants={fadeUp}><Link href={m.url} target="_blank" rel="noopener noreferrer">{card}</Link></motion.div>
+                            : <motion.div key={m.name} variants={fadeUp}>{card}</motion.div>
+                    })}
+                </motion.div>
             </div>
         </section>
-    )
-}
-
-function TeamCard({ member }: { member: TeamMember }) {
-    const [isHovered, setIsHovered] = useState(false)
-
-    const Wrapper = member.portfolioUrl
-        ? ({ children }: { children: React.ReactNode }) => (
-              <a
-                  href={member.portfolioUrl}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className={`group block transition-transform duration-500 ease-out ${member.hierarchyClass ?? ''}`}
-                  onMouseEnter={() => setIsHovered(true)}
-                  onMouseLeave={() => setIsHovered(false)}
-              >
-                  {children}
-              </a>
-          )
-        : ({ children }: { children: React.ReactNode }) => (
-              <div
-                  className={`group block transition-transform duration-500 ease-out ${member.hierarchyClass ?? ''}`}
-                  onMouseEnter={() => setIsHovered(true)}
-                  onMouseLeave={() => setIsHovered(false)}
-              >
-                  {children}
-              </div>
-          )
-
-    return (
-        <Wrapper>
-            <div
-                className="glass-card rounded-2xl p-8 transition-all duration-500 ease-out
-                    hover:border-accent/40 hover:shadow-lg
-                    hover:-translate-y-1"
-            >
-                {/* Avatar */}
-                <div className="flex items-center gap-5 mb-6">
-                    <div className="relative">
-                        {member.image ? (
-                            <div
-                                className={`w-20 h-20 rounded-full overflow-hidden
-                                    transition-transform duration-500 ease-out
-                                    ${isHovered ? 'scale-110' : 'scale-100'}`}
-                            >
-                                <Image
-                                    src={member.image}
-                                    alt={`${member.name} — ${member.role} at AvlokAI`}
-                                    width={80}
-                                    height={80}
-                                    loading="lazy"
-                                    className="w-full h-full object-cover"
-                                />
-                            </div>
-                        ) : (
-                            <div
-                                className={`w-20 h-20 rounded-full bg-gradient-to-br ${member.gradient}
-                                    flex items-center justify-center text-2xl font-bold text-background
-                                    transition-transform duration-500 ease-out
-                                    ${isHovered ? 'scale-110' : 'scale-100'}`}
-                            >
-                                {member.initials}
-                            </div>
-                        )}
-                        {/* Ring animation on hover */}
-                        <div
-                            className={`absolute inset-0 rounded-full border-2 border-accent/30
-                                transition-all duration-500 ease-out
-                                ${isHovered ? 'scale-125 opacity-100' : 'scale-100 opacity-0'}`}
-                        />
-                    </div>
-
-                    <div>
-                        <h3 className="text-xl font-semibold text-foreground group-hover:text-accent transition-colors duration-300">
-                            {member.name}
-                        </h3>
-                        <p className="text-accent font-mono text-sm mt-0.5">
-                            {member.role}
-                        </p>
-                    </div>
-                </div>
-
-                {/* Description */}
-                <p className="text-muted leading-relaxed text-[15px]">
-                    {member.description}
-                </p>
-
-                {/* View Portfolio indicator */}
-                {member.portfolioUrl && (
-                    <div className="mt-6 flex items-center gap-2 text-sm text-accent/70 group-hover:text-accent transition-colors duration-300">
-                        <span>View Portfolio</span>
-                        <svg
-                            className={`w-4 h-4 transition-transform duration-300 ${isHovered ? 'translate-x-1' : ''}`}
-                            fill="none"
-                            viewBox="0 0 24 24"
-                            stroke="currentColor"
-                            strokeWidth={2}
-                        >
-                            <path
-                                strokeLinecap="round"
-                                strokeLinejoin="round"
-                                d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3"
-                            />
-                        </svg>
-                    </div>
-                )}
-            </div>
-        </Wrapper>
     )
 }

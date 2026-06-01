@@ -8,8 +8,9 @@ import { Sun, Moon } from 'lucide-react'
 import { useTheme } from '@/components/ThemeProvider'
 
 const navLinks = [
-    { href: '/services', label: 'Services' },
-    { href: '/industries', label: 'Industries' },
+    { href: '/#services', label: 'Services' },
+    { href: '/#work', label: 'Work' },
+    { href: '/#industries', label: 'Industries' },
     { href: 'https://catalogue.avlokai.com', label: 'Catalogue', external: true },
 ]
 
@@ -37,7 +38,7 @@ export default function Header() {
                             priority
                         />
                     </div>
-                    <span className="text-xl font-bold tracking-tight">
+                    <span className="font-display text-xl font-bold tracking-tight">
                         Avlok<span className="gradient-text">AI</span>
                     </span>
                 </Link>
@@ -74,7 +75,7 @@ export default function Header() {
                     </button>
                     <a
                         href="mailto:avlokaibusiness@gmail.com"
-                        className="px-4 py-2 bg-accent hover:bg-accent-dim text-background text-sm font-medium rounded-lg transition-all"
+                        className="px-4 py-2 bg-accent hover:bg-accent-dim text-white text-sm font-medium rounded-lg transition-all"
                     >
                         Contact Us
                     </a>
@@ -140,7 +141,7 @@ export default function Header() {
                             </button>
                             <a
                                 href="mailto:avlokaibusiness@gmail.com"
-                                className="px-4 py-2 bg-accent hover:bg-accent-dim text-background text-sm font-medium rounded-lg transition-all text-center"
+                                className="px-4 py-2 bg-accent hover:bg-accent-dim text-white text-sm font-medium rounded-lg transition-all text-center"
                             >
                                 Contact Us
                             </a>
