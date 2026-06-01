@@ -2,9 +2,7 @@
 
 import { useRef } from 'react'
 import Link from 'next/link'
-import SplineScene from '@/components/SplineScene'
 import Hero from '@/components/Hero'
-import FlowDiagram from '@/components/FlowDiagram'
 import AutomationWizard from '@/components/AutomationWizard'
 import DemoPlayground from '@/components/DemoPlayground'
 import ProcessFlow from '@/components/ProcessFlow'
@@ -43,17 +41,6 @@ export default function Home() {
                     <Hero onPrimaryCTA={scrollToWizard} onSecondaryCTA={scrollToDiagram} />
                 </div>
 
-                {/* Spline 3D visualization */}
-                <div className="relative w-full lg:w-1/2 h-[50vh] lg:h-screen z-0 flex items-center justify-center order-1 lg:order-2 pointer-events-auto">
-                    <div className="w-full h-full flex items-center justify-center cursor-grab active:cursor-grabbing">
-                        <SplineScene scene="/scene-clean.splinecode" />
-                    </div>
-                </div>
-            </div>
-
-            {/* Interactive System Diagram */}
-            <div ref={diagramRef}>
-                <FlowDiagram />
             </div>
 
             {/* Build Your Automation Wizard */}
