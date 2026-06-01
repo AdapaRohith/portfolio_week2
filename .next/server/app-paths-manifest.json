@@ -1,5 +1,10 @@
 {
+  "/_not-found/page": "app/_not-found/page.js",
+  "/data-delete/page": "app/data-delete/page.js",
+  "/privacy/page": "app/privacy/page.js",
   "/page": "app/page.js",
+  "/terms/page": "app/terms/page.js",
+  "/services/page": "app/services/page.js",
   "/industries/page": "app/industries/page.js",
-  "/services/page": "app/services/page.js"
+  "/api/whatsapp-brochure/route": "app/api/whatsapp-brochure/route.js"
 }
