@@ -1,6 +1,3 @@
-'use client'
-
-import { useRef } from 'react'
 import Link from 'next/link'
 import AutomationFlowHero from '@/components/AutomationFlowHero'
 import StatsBand from '@/components/StatsBand'
@@ -11,24 +8,21 @@ import ProcessTimeline from '@/components/ProcessTimeline'
 import TeamSection from '@/components/TeamSection'
 import Testimonials from '@/components/Testimonials'
 import FinalCTA from '@/components/FinalCTA'
+import FaqSection from '@/components/FaqSection'
 
 export default function Home() {
-    const workRef = useRef<HTMLDivElement>(null)
-
-    const scrollToContact = () => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })
-    const scrollToWork = () => workRef.current?.scrollIntoView({ behavior: 'smooth' })
-
     return (
         <main className="relative">
-            <AutomationFlowHero onPrimaryCTA={scrollToContact} onSecondaryCTA={scrollToWork} />
+            <AutomationFlowHero />
             <StatsBand />
             <ServicesBento />
-            <div ref={workRef}><WorkShowcase /></div>
+            <WorkShowcase />
             <IndustriesBand />
             <ProcessTimeline />
             <TeamSection />
             <Testimonials />
             <FinalCTA />
+            <FaqSection />
 
             <footer className="py-12 px-6 border-t border-border">
                 <div className="max-w-6xl mx-auto">

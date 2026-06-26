@@ -5,9 +5,10 @@ import { ArrowRight } from 'lucide-react'
 import AutomationFlow from './AutomationFlow'
 import { fadeUp, staggerContainer } from '@/lib/motion'
 
-interface Props { onPrimaryCTA?: () => void; onSecondaryCTA?: () => void }
+export default function AutomationFlowHero() {
+    const scrollToContact = () => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })
+    const scrollToWork = () => document.getElementById('work')?.scrollIntoView({ behavior: 'smooth' })
 
-export default function AutomationFlowHero({ onPrimaryCTA, onSecondaryCTA }: Props) {
     return (
         <section className="relative min-h-[100svh] flex items-center px-6 pt-24 lg:pt-0">
             <div className="max-w-7xl mx-auto w-full grid lg:grid-cols-2 gap-12 items-center">
@@ -22,11 +23,11 @@ export default function AutomationFlowHero({ onPrimaryCTA, onSecondaryCTA }: Pro
                         We design and ship production-grade AI systems that eliminate manual work — built for scale, reliability, and measurable ROI.
                     </motion.p>
                     <motion.div variants={fadeUp} className="flex flex-col sm:flex-row gap-4">
-                        <button onClick={onPrimaryCTA}
+                        <button onClick={scrollToContact}
                             className="px-7 py-3.5 bg-accent hover:bg-accent-dim text-background font-medium rounded-lg transition-colors inline-flex items-center justify-center gap-2">
                             Start a project <ArrowRight className="h-4 w-4" aria-hidden="true" />
                         </button>
-                        <button onClick={onSecondaryCTA}
+                        <button onClick={scrollToWork}
                             className="px-7 py-3.5 glass-card hover:bg-card-hover text-foreground font-medium rounded-lg transition-colors">
                             See it work
                         </button>

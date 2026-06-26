@@ -4,13 +4,38 @@ import { ArrowLeft } from 'lucide-react'
 import { industries } from '@/lib/industries'
 
 export const metadata: Metadata = {
-    title: 'Industries We Serve | AvlokAI',
-    description: 'AI automation tailored to IT, e-commerce, manufacturing, healthcare, real estate, and small business.',
+    title: 'Industries We Serve | AI Automation for IT, E-Commerce, Healthcare & More | AvlokAI',
+    description: 'AvlokAI delivers production-grade AI automation across IT, e-commerce, manufacturing, healthcare, real estate, and SMB — tailored to each sector\'s real operational challenges.',
+    alternates: {
+        canonical: 'https://avlokai.com/industries',
+    },
+    openGraph: {
+        title: 'Industries We Serve | AvlokAI',
+        description: 'AI automation tailored to your sector — IT, e-commerce, manufacturing, healthcare, real estate, and SMB.',
+        url: 'https://avlokai.com/industries',
+        siteName: 'AvlokAI',
+        locale: 'en_US',
+        type: 'website',
+        images: [{ url: '/AvlokAi.png', width: 512, height: 512, alt: 'AvlokAI Industries' }],
+    },
+}
+
+const breadcrumbJsonLd = {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+        { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://avlokai.com' },
+        { '@type': 'ListItem', position: 2, name: 'Industries', item: 'https://avlokai.com/industries' },
+    ],
 }
 
 export default function IndustriesPage() {
     return (
         <main className="min-h-screen bg-background pt-28 pb-20 px-6">
+            <script
+                type="application/ld+json"
+                dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }}
+            />
             <div className="max-w-6xl mx-auto">
                 <nav className="font-mono text-xs text-muted mb-8" aria-label="Breadcrumb">
                     <Link href="/" className="hover:text-foreground transition-colors inline-flex items-center gap-1">
@@ -22,7 +47,7 @@ export default function IndustriesPage() {
                     Built for <span className="gradient-text">your sector</span>.
                 </h1>
                 <p className="text-lg text-muted max-w-2xl mb-14">
-                    We tailor automation systems to the realities of each industry we serve.
+                    We tailor AI automation systems to the realities of each industry we serve — because manufacturing ops and e-commerce ops are not the same problem.
                 </p>
                 <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
                     {industries.map((ind) => {
@@ -32,7 +57,8 @@ export default function IndustriesPage() {
                                 <span className="inline-flex h-11 w-11 items-center justify-center rounded-xl bg-accent-soft text-accent mb-4">
                                     <Icon className="h-5 w-5" aria-hidden="true" />
                                 </span>
-                                <h2 className="font-display text-xl font-semibold">{ind.label}</h2>
+                                <h2 className="font-display text-xl font-semibold mb-2">{ind.label}</h2>
+                                <p className="text-sm text-muted">{ind.description}</p>
                             </div>
                         )
                     })}

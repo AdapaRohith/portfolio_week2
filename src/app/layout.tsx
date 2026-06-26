@@ -66,7 +66,38 @@ const jsonLd = {
     name: 'AvlokAI',
     url: 'https://avlokai.com',
     logo: 'https://avlokai.com/AvlokAi.png',
-    description: 'AvlokAI engineers enterprise-grade AI automation systems that eliminate manual workflows.',
+    description: 'AvlokAI engineers enterprise-grade AI automation systems that eliminate manual workflows for IT, e-commerce, manufacturing, healthcare, real estate, and SMB sectors.',
+    serviceType: 'AI Automation Agency',
+    areaServed: 'Worldwide',
+    knowsAbout: [
+        'AI automation',
+        'workflow automation',
+        'business process automation',
+        'AI agent development',
+        'n8n automation',
+        'CRM automation',
+        'WhatsApp automation',
+        'predictive maintenance',
+        'computer vision quality control',
+        'natural language processing',
+        'enterprise AI integration',
+        'generative AI systems',
+        'omnichannel inventory management',
+        'claims processing automation',
+        'real estate lead automation',
+    ],
+    hasOfferCatalog: {
+        '@type': 'OfferCatalog',
+        name: 'AI Automation Services',
+        itemListElement: [
+            { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'IT Services & Software Automation', description: 'AI-powered lead qualification, automated invoicing, bug triage, and performance dashboards.' } },
+            { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'E-Commerce & Retail Automation', description: 'Omnichannel inventory sync, AI review analysis, order fulfillment, and pricing intelligence.' } },
+            { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Manufacturing & Logistics Automation', description: 'Predictive maintenance, computer-vision quality control, and intelligent supply-chain visibility.' } },
+            { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Healthcare & Pharma Automation', description: 'Patient scheduling, claims processing, and HIPAA compliance auditing.' } },
+            { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Real Estate & Construction Automation', description: 'AI lead management, multi-portal listing sync, and site-progress tracking.' } },
+            { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'SMB Micro-Automations', description: 'WhatsApp broadcasts, review requests, appointment reminders, and daily sales summaries.' } },
+        ],
+    },
     sameAs: [
         'https://www.linkedin.com/company/avlokai/',
         'https://www.instagram.com/avlok.ai/',
@@ -76,19 +107,12 @@ const jsonLd = {
         email: 'avlokaibusiness@gmail.com',
         telephone: '+919346672015',
         contactType: 'sales',
+        availableLanguage: 'English',
     },
     foundingDate: '2024',
     founder: [
-        {
-            '@type': 'Person',
-            name: 'Sushanth Kasturi',
-            jobTitle: 'Founder and CEO',
-        },
-        {
-            '@type': 'Person',
-            name: 'Rohith',
-            jobTitle: 'Co-Founder and CTO',
-        },
+        { '@type': 'Person', name: 'Sushanth Kasturi', jobTitle: 'Founder and CEO' },
+        { '@type': 'Person', name: 'Rohith', jobTitle: 'Co-Founder and CTO' },
     ],
 }
 
@@ -105,12 +129,12 @@ export default function RootLayout({
                         __html: `(function(){try{var t=localStorage.getItem('theme');if(!t){t=window.matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light';}if(t==='dark'){document.documentElement.classList.add('dark');}}catch(e){}})();`,
                     }}
                 />
-            </head>
-            <body className="min-h-screen bg-background text-foreground">
                 <script
                     type="application/ld+json"
                     dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
                 />
+            </head>
+            <body className="min-h-screen bg-background text-foreground">
                 <ThemeProvider>
                     <Header />
                     {children}
@@ -120,4 +144,3 @@ export default function RootLayout({
         </html>
     )
 }
-

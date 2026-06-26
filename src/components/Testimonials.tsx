@@ -22,12 +22,18 @@ export default function Testimonials() {
                 <motion.div variants={staggerContainer} initial="hidden" whileInView="show" viewport={inView}
                     className="grid md:grid-cols-3 gap-4">
                     {testimonials.map((t) => (
-                        <motion.figure key={t.quote} variants={fadeUp} className="glass-card rounded-2xl p-7 flex flex-col">
+                        <motion.figure
+                            key={t.quote}
+                            variants={fadeUp}
+                            className="glass-card rounded-2xl p-7 flex flex-col"
+                            itemScope
+                            itemType="https://schema.org/Review"
+                        >
                             <Quote className="h-6 w-6 text-accent mb-4" aria-hidden="true" />
-                            <blockquote className="text-foreground mb-6 flex-1">{t.quote}</blockquote>
-                            <figcaption>
-                                <div className="font-display font-semibold text-sm">{t.name}</div>
-                                <div className="font-mono text-xs text-muted">{t.role}</div>
+                            <blockquote className="text-foreground mb-6 flex-1" itemProp="reviewBody">{t.quote}</blockquote>
+                            <figcaption itemScope itemType="https://schema.org/Person" itemProp="author">
+                                <div className="font-display font-semibold text-sm" itemProp="name">{t.name}</div>
+                                <div className="font-mono text-xs text-muted" itemProp="jobTitle">{t.role}</div>
                             </figcaption>
                         </motion.figure>
                     ))}
