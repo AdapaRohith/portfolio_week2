@@ -49,8 +49,8 @@ export default function DataDeletion() {
                             </h2>
                             <p className="text-muted text-lg leading-relaxed mb-8">
                                 Users can request deletion of their personal data by emailing
-                                <a href="mailto:avlokaibusiness@gmail.com" className="text-foreground font-semibold hover:text-accent transition-colors ml-1 underline decoration-accent/30 underline-offset-4">
-                                    avlokaibusiness@gmail.com
+                                <a href="mailto:hello@avlokai.com" className="text-foreground font-semibold hover:text-accent transition-colors ml-1 underline decoration-accent/30 underline-offset-4">
+                                    hello@avlokai.com
                                 </a>.
                             </p>
 
@@ -96,7 +96,7 @@ export default function DataDeletion() {
                                 If you have any questions regarding your data privacy or the deletion process, please reach out to our team.
                             </p>
                             <a
-                                href="mailto:avlokaibusiness@gmail.com"
+                                href="mailto:hello@avlokai.com"
                                 className="inline-block py-4 px-10 rounded-full bg-accent text-background font-bold text-lg hover:shadow-lg transition-all transform hover:-translate-y-1"
                             >
                                 Contact Support

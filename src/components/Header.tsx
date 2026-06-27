@@ -74,7 +74,7 @@ export default function Header() {
                         {theme === 'dark' ? <Sun className="w-5 h-5" /> : <Moon className="w-5 h-5" />}
                     </button>
                     <a
-                        href="mailto:avlokaibusiness@gmail.com"
+                        href="mailto:hello@avlokai.com"
                         className="px-4 py-2 bg-accent hover:bg-accent-dim text-background text-sm font-medium rounded-lg transition-all"
                     >
                         Contact Us
@@ -140,7 +140,7 @@ export default function Header() {
                                 {theme === 'dark' ? 'Light mode' : 'Dark mode'}
                             </button>
                             <a
-                                href="mailto:avlokaibusiness@gmail.com"
+                                href="mailto:hello@avlokai.com"
                                 className="px-4 py-2 bg-accent hover:bg-accent-dim text-background text-sm font-medium rounded-lg transition-all text-center"
                             >
                                 Contact Us

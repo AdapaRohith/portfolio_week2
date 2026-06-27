@@ -104,7 +104,7 @@ const jsonLd = {
     ],
     contactPoint: {
         '@type': 'ContactPoint',
-        email: 'avlokaibusiness@gmail.com',
+        email: 'hello@avlokai.com',
         telephone: '+919346672015',
         contactType: 'sales',
         availableLanguage: 'English',

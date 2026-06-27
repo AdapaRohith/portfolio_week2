@@ -86,10 +86,10 @@ export default function TermsOfService() {
                             <h2 className="text-2xl font-semibold mb-2">Contact</h2>
                             <p className="text-muted mb-4">Questions regarding these terms? Reach out to our business team.</p>
                             <a
-                                href="mailto:avlokaibusiness@gmail.com"
+                                href="mailto:hello@avlokai.com"
                                 className="text-xl font-bold text-accent hover:brightness-110 transition-all underline underline-offset-8 decoration-accent/30 hover:decoration-accent"
                             >
-                                avlokaibusiness@gmail.com
+                                hello@avlokai.com
                             </a>
                         </section>
                     </div>

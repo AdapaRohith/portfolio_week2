@@ -272,7 +272,7 @@ export async function GET(req: NextRequest) {
                         <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'flex-end', gap: '6px' }}>
                             <span style={{ color: '#c9a84c', fontSize: '16px', fontWeight: '700' }}>avlokai.com</span>
                             <span style={{ color: '#58587a', fontSize: '14px' }}>+91 93466 72015</span>
-                            <span style={{ color: '#58587a', fontSize: '14px' }}>avlokaibusiness@gmail.com</span>
+                            <span style={{ color: '#58587a', fontSize: '14px' }}>hello@avlokai.com</span>
                         </div>
                     </div>
                 </div>

@@ -4,7 +4,7 @@ import { motion } from 'framer-motion'
 import { Mail, Phone, MessageCircle, ArrowRight } from 'lucide-react'
 import { inView } from '@/lib/motion'
 
-const GMAIL = 'https://mail.google.com/mail/u/0/?fs=1&to=avlokaibusiness@gmail.com&su=Automation%20Project%20Inquiry&tf=cm'
+const GMAIL = 'https://mail.google.com/mail/u/0/?fs=1&to=hello@avlokai.com&su=Automation%20Project%20Inquiry&tf=cm'
 
 export default function FinalCTA() {
     return (

@@ -52,7 +52,7 @@ export default function Home() {
                         <div>
                             <h3 className="font-display text-sm font-semibold mb-4">Contact</h3>
                             <ul className="space-y-2">
-                                <li><a href="mailto:avlokaibusiness@gmail.com" className="text-sm text-muted hover:text-foreground transition-colors">avlokaibusiness@gmail.com</a></li>
+                                <li><a href="mailto:hello@avlokai.com" className="text-sm text-muted hover:text-foreground transition-colors">hello@avlokai.com</a></li>
                                 <li><a href="tel:+919346672015" className="text-sm text-muted hover:text-foreground transition-colors">+91 93466 72015</a></li>
                                 <li><a href="https://www.linkedin.com/company/avlokai/" target="_blank" rel="noopener noreferrer" className="text-sm text-muted hover:text-foreground transition-colors">LinkedIn</a></li>
                                 <li><a href="https://www.instagram.com/avlok.ai/" target="_blank" rel="noopener noreferrer" className="text-sm text-muted hover:text-foreground transition-colors">Instagram</a></li>

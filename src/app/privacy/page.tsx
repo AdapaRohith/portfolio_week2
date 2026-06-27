@@ -95,7 +95,7 @@ export default function PrivacyPolicy() {
                                     Users may request deletion of their data at any time.
                                 </p>
                                 <a
-                                    href="mailto:avlokaibusiness@gmail.com"
+                                    href="mailto:hello@avlokai.com"
                                     className="inline-flex items-center gap-2 text-accent font-medium hover:underline"
                                 >
                                     Contact Support <ArrowLeft className="w-4 h-4 rotate-180" />
@@ -106,10 +106,10 @@ export default function PrivacyPolicy() {
                                 <h2 className="text-2xl font-semibold mb-4">Contact</h2>
                                 <Mail className="w-8 h-8 text-accent mb-4" />
                                 <a
-                                    href="mailto:avlokaibusiness@gmail.com"
+                                    href="mailto:hello@avlokai.com"
                                     className="text-xl font-bold hover:text-accent transition-colors"
                                 >
-                                    avlokaibusiness@gmail.com
+                                    hello@avlokai.com
                                 </a>
                             </section>
                         </div>
