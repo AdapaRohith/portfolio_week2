@@ -7,10 +7,13 @@ import { motion, AnimatePresence } from 'framer-motion'
 import { Sun, Moon } from 'lucide-react'
 import { useTheme } from '@/components/ThemeProvider'
 
+// Real page links, not homepage anchors. Anchor links passed no ranking signal
+// to the /services and /industries pages they were meant to promote.
 const navLinks = [
-    { href: '/#services', label: 'Services' },
-    { href: '/#work', label: 'Work' },
-    { href: '/#industries', label: 'Industries' },
+    { href: '/services', label: 'Services' },
+    { href: '/industries', label: 'Industries' },
+    { href: '/ai-automation-agency-hyderabad', label: 'Hyderabad' },
+    { href: '/#faq', label: 'FAQ' },
     { href: 'https://catalogue.avlokai.com', label: 'Catalogue', external: true },
 ]
 
@@ -25,15 +28,15 @@ export default function Header() {
             transition={{ duration: 0.5 }}
             className="fixed top-0 left-0 right-0 z-50 bg-background/80 backdrop-blur-md border-b border-border/50"
         >
-            <div className="max-w-7xl mx-auto px-6 flex items-center justify-between h-16">
+            <div className="max-w-7xl mx-auto px-5 sm:px-6 flex items-center justify-between h-16">
                 {/* Logo */}
                 <Link href="/" className="flex items-center gap-2" aria-label="AvlokAI Home">
-                    <div className="w-10 h-10 relative">
+                    <div className="w-9 h-9 relative">
                         <Image
                             src="/AvlokAi.png"
                             alt="AvlokAI — Intelligent Automation Solutions logo"
                             fill
-                            sizes="40px"
+                            sizes="36px"
                             className="object-contain"
                             priority
                         />
@@ -44,7 +47,9 @@ export default function Header() {
                 </Link>
 
                 {/* Desktop Navigation */}
-                <nav className="hidden md:flex items-center gap-8" aria-label="Main navigation">
+                {/* Five nav items plus a CTA crowd at the md breakpoint, so the
+                    desktop nav starts at lg and the menu button covers below it. */}
+                <nav className="hidden lg:flex items-center gap-6" aria-label="Main navigation">
                     {navLinks.map((link) => (
                         link.external ? (
                             <a
@@ -73,19 +78,20 @@ export default function Header() {
                     >
                         {theme === 'dark' ? <Sun className="w-5 h-5" /> : <Moon className="w-5 h-5" />}
                     </button>
-                    <a
-                        href="mailto:avlokaibusiness@gmail.com"
+                    <Link
+                        href="/contact"
                         className="px-4 py-2 bg-accent hover:bg-accent-dim text-background text-sm font-medium rounded-lg transition-all"
                     >
                         Contact Us
-                    </a>
+                    </Link>
                 </nav>
 
                 {/* Mobile menu button */}
                 <button
                     onClick={() => setMenuOpen(!menuOpen)}
-                    className="md:hidden text-foreground p-2"
+                    className="lg:hidden text-foreground p-2"
                     aria-label="Toggle menu"
+                    aria-expanded={menuOpen}
                 >
                     <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         {menuOpen ? (
@@ -104,7 +110,7 @@ export default function Header() {
                         initial={{ opacity: 0, height: 0 }}
                         animate={{ opacity: 1, height: 'auto' }}
                         exit={{ opacity: 0, height: 0 }}
-                        className="md:hidden border-t border-border/50 bg-background/95 backdrop-blur-md overflow-hidden"
+                        className="lg:hidden border-t border-border/50 bg-background/95 backdrop-blur-md overflow-hidden"
                         aria-label="Mobile navigation"
                     >
                         <div className="px-6 py-4 flex flex-col gap-4">
@@ -139,12 +145,13 @@ export default function Header() {
                                 {theme === 'dark' ? <Sun className="w-4 h-4" /> : <Moon className="w-4 h-4" />}
                                 {theme === 'dark' ? 'Light mode' : 'Dark mode'}
                             </button>
-                            <a
-                                href="mailto:avlokaibusiness@gmail.com"
+                            <Link
+                                href="/contact"
+                                onClick={() => setMenuOpen(false)}
                                 className="px-4 py-2 bg-accent hover:bg-accent-dim text-background text-sm font-medium rounded-lg transition-all text-center"
                             >
                                 Contact Us
-                            </a>
+                            </Link>
                         </div>
                     </motion.nav>
                 )}

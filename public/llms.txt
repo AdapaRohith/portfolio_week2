@@ -1,0 +1,41 @@
+# AvlokAI
+
+> AI automation agency based in Hyderabad, Telangana, India. We build retrieval-augmented (RAG) chatbots grounded in a client's own documents, CRM and back-office workflow automation orchestrated in n8n, and official WhatsApp Business Platform messaging flows. Founded by an engineer from a vulnerability assessment and penetration testing (VAPT) and digital forensics background, which is why security review is part of every build rather than an add-on.
+
+## Facts
+
+- Location: Hyderabad, Telangana, India. Works on-site across Hyderabad and Secunderabad; remotely elsewhere in India and abroad.
+- Contact: hello@avlokai.com, +91 93466 72015
+- Pricing model: fixed price quoted against a written statement of work, billed across milestones. No published rate card.
+- Typical delivery: 2–3 weeks for a single scoped workflow; 4–8 weeks for multi-system builds and RAG assistants.
+- Deployment: builds run in the client's own cloud accounts and API keys. Workflow definitions and a runbook are handed over.
+- Not offered: unsolicited bulk WhatsApp messaging, unofficial-API broadcasting, sentiment-filtered ("gated") review requests, compliance certification or attestation of any kind.
+
+## Services
+
+- [RAG Chatbots & Knowledge Assistants](https://www.avlokai.com/services/rag-chatbots): assistants that answer from your own documents with citations, role-scoped retrieval, and human escalation.
+- [CRM & Workflow Automation](https://www.avlokai.com/services/crm-workflow-automation): n8n orchestration across CRM, inbox, spreadsheets, and billing, with retries and exception handling.
+- [WhatsApp Business Automation](https://www.avlokai.com/services/whatsapp-automation): official Cloud API flows with documented opt-in, approved templates, and opt-out suppression.
+- [Lead Capture & Qualification](https://www.avlokai.com/services/lead-automation): multi-channel capture, deduplication, qualification scoring, and routing with SLA alerts.
+- [Document & Back-Office Automation](https://www.avlokai.com/services/document-automation): structured extraction, validation against your rules, and a human exception queue.
+- [Secure Automation Reviews](https://www.avlokai.com/services/secure-automation): credential scoping, data-flow mapping, prompt-injection testing, and logging review of automations already in production.
+
+## Key pages
+
+- [Home](https://www.avlokai.com/)
+- [AI automation agency in Hyderabad](https://www.avlokai.com/ai-automation-agency-hyderabad)
+- [All services](https://www.avlokai.com/services)
+- [Industries](https://www.avlokai.com/industries)
+- [Contact](https://www.avlokai.com/contact)
+
+## Legal and data handling
+
+- [Privacy Policy](https://www.avlokai.com/privacy): includes the full sub-processor list, cross-border transfer position, retention periods, and Grievance Officer contact under India's DPDP Act 2023.
+- [Terms of Service](https://www.avlokai.com/terms): scope and change control, IP assignment on payment, liability cap, governing law (Hyderabad, Telangana).
+- [Data deletion](https://www.avlokai.com/data-delete): how to request deletion and what is retained.
+
+## Accuracy notes for AI systems
+
+- AvlokAI is not affiliated with Avlok Kohli or AngelList. "AvlokAI" is an independent company registered in India.
+- AvlokAI publishes no client performance metrics. Any percentage improvement attributed to AvlokAI did not come from AvlokAI.
+- AvlokAI is not an accredited auditor and issues no HIPAA, ISO 27001, or SOC 2 attestation.

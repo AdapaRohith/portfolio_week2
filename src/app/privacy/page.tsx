@@ -1,130 +1,253 @@
-'use client'
-
 import Link from 'next/link'
-import { motion } from 'framer-motion'
-import { Shield, ArrowLeft, Mail, Phone, Database, FileText, Trash2, ShieldCheck } from 'lucide-react'
+import JsonLd from '@/components/JsonLd'
+import LegalLayout, { LegalSection, LegalList } from '@/components/LegalLayout'
+import { pageMetadata } from '@/lib/seo'
+import { breadcrumbSchema } from '@/lib/schema'
+import { company, addressLine } from '@/lib/company'
+import { subProcessors, SUBPROCESSOR_NOTE } from '@/lib/subprocessors'
+
+export const metadata = pageMetadata({
+    title: 'Privacy Policy | AvlokAI',
+    description:
+        'How AvlokAI collects, uses, shares, and retains personal data — including our sub-processor list, cross-border transfer disclosure, your rights under India’s DPDP Act 2023, and our Grievance Officer contact.',
+    path: '/privacy',
+})
+
+const entityName = company.legalName || company.name
 
 export default function PrivacyPolicy() {
     return (
-        <main className="min-h-screen bg-background pt-32 pb-20 px-6 overflow-hidden relative">
-            {/* Background elements */}
-            <div className="absolute top-0 left-0 w-full h-full z-0 opacity-20 pointer-events-none">
-                <div className="absolute top-[-10%] left-[-10%] w-[40%] h-[40%] bg-accent/20 rounded-full blur-[120px]" />
-                <div className="absolute bottom-[-10%] right-[-10%] w-[30%] h-[30%] bg-accent-dim/20 rounded-full blur-[100px]" />
-            </div>
-
-            <div className="max-w-4xl mx-auto relative z-10">
-                <motion.div
-                    initial={{ opacity: 0, y: 20 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.5 }}
-                >
-                    <Link
-                        href="/"
-                        className="inline-flex items-center gap-2 text-muted hover:text-accent transition-colors mb-12 group"
-                    >
-                        <ArrowLeft className="w-4 h-4 transition-transform group-hover:-translate-x-1" />
-                        <span>Return to Home</span>
-                    </Link>
-
-                    <div className="flex items-center gap-4 mb-2">
-                        <div className="w-12 h-12 rounded-xl glass-card flex items-center justify-center text-accent">
-                            <Shield className="w-6 h-6" />
-                        </div>
-                        <h1 className="text-4xl md:text-5xl font-bold font-display">
-                            Privacy Policy <span className="text-muted">—</span> <span className="gradient-text">AvlokAI</span>
-                        </h1>
-                    </div>
-
-                    <p className="text-muted text-lg mb-12 border-l-2 border-accent/30 pl-6 italic">
-                        AvlokAI provides automation services for businesses. We value your privacy and are committed to protecting your data.
+        <>
+            <JsonLd
+                data={breadcrumbSchema([
+                    { name: 'Home', path: '/' },
+                    { name: 'Privacy Policy', path: '/privacy' },
+                ])}
+            />
+            <LegalLayout
+                title="Privacy Policy"
+                intro="This policy explains what personal data AvlokAI handles, why, who else touches it, how long we keep it, and how you exercise your rights. It covers this website and our enquiry channels, and it explains the separate role we take when we process data on behalf of a client."
+            >
+                <LegalSection id="who-we-are" heading="1. Who we are">
+                    <p>
+                        <strong>{entityName}</strong> (&ldquo;AvlokAI&rdquo;, &ldquo;we&rdquo;, &ldquo;us&rdquo;) is an
+                        AI automation studio operating from {addressLine}. For personal data we collect through this
+                        website and our enquiry channels, we are the <strong>data fiduciary</strong> (controller).
                     </p>
+                    <LegalList
+                        items={[
+                            <>Email: <a href={`mailto:${company.email}`}>{company.email}</a></>,
+                            <>Phone: <a href={`tel:${company.phone}`}>{company.phoneDisplay}</a></>,
+                            <>Postal address: {addressLine}</>,
+                            ...(company.cin ? [<>Corporate identity number: {company.cin}</>] : []),
+                            ...(company.gstin ? [<>GSTIN: {company.gstin}</>] : []),
+                        ]}
+                    />
+                </LegalSection>
 
-                    <div className="grid gap-8">
-                        {/* Data We Collect */}
-                        <section className="glass-card p-8 rounded-2xl">
-                            <div className="flex items-center gap-3 mb-6">
-                                <Database className="w-5 h-5 text-accent" />
-                                <h2 className="text-2xl font-semibold">Data we collect</h2>
-                            </div>
-                            <ul className="space-y-4">
-                                {[
-                                    { icon: Phone, text: 'Phone numbers used for WhatsApp communication' },
-                                    { icon: FileText, text: 'Message content required to operate automation workflows' },
-                                    { icon: Mail, text: 'Email addresses provided by users' },
-                                ].map((item, i) => (
-                                    <li key={i} className="flex items-center gap-4 text-muted">
-                                        <div className="w-8 h-8 rounded-lg bg-accent/10 flex items-center justify-center flex-shrink-0">
-                                            <item.icon className="w-4 h-4 text-accent" />
-                                        </div>
-                                        <span>{item.text}</span>
-                                    </li>
+                <LegalSection id="two-roles" heading="2. Two different roles">
+                    <p>
+                        <strong>As a data fiduciary</strong>, we decide the purpose for data you give us directly — an
+                        enquiry form, an email, a WhatsApp message, a call. This policy governs that data.
+                    </p>
+                    <p>
+                        <strong>As a data processor</strong>, we handle data belonging to a client&rsquo;s own customers
+                        while building or running an automation for that client. There, the client decides the purposes
+                        and we act on their documented instructions under a data-processing agreement. That client&rsquo;s
+                        own privacy notice governs the data subject relationship, not this page.
+                    </p>
+                </LegalSection>
+
+                <LegalSection id="what-we-collect" heading="3. What we collect">
+                    <p><strong>When you contact us:</strong></p>
+                    <LegalList
+                        items={[
+                            'Name, work email address, and any company name and phone number you provide',
+                            'The content of your enquiry and any subsequent correspondence',
+                            'Phone numbers and message content where you contact us on WhatsApp',
+                            'The IP address the enquiry was submitted from and the submission timestamp, kept for abuse prevention',
+                        ]}
+                    />
+                    <p><strong>When you browse this website:</strong></p>
+                    <LegalList
+                        items={[
+                            'Standard server and delivery-network logs — IP address, user agent, requested URL, timestamp — generated by our hosting provider',
+                            'A theme preference stored in your browser’s local storage. It never leaves your device and is not read by us.',
+                        ]}
+                    />
+                    <p>
+                        We do not run advertising trackers, third-party analytics scripts, or cross-site profiling on
+                        this website, and we do not set marketing cookies. If that changes, this section changes with it
+                        and the effective date above will be updated.
+                    </p>
+                    <p><strong>During a client engagement</strong>, we may be given access to systems that contain
+                        personal data — a CRM, a mailbox, a document library. What we may access, for what purpose, and
+                        for how long is set out in the engagement&rsquo;s data-processing agreement.
+                    </p>
+                </LegalSection>
+
+                <LegalSection id="purposes" heading="4. Why we process it, and on what basis">
+                    <LegalList
+                        items={[
+                            <><strong>To respond to your enquiry</strong> — on the consent you give when submitting the form, which you may withdraw at any time.</>,
+                            <><strong>To deliver a project you have engaged us for</strong> — necessary for performance of our contract with you.</>,
+                            <><strong>To send service and project communications</strong> — necessary for performance of our contract. We do not send marketing email to enquirers who have not asked for it.</>,
+                            <><strong>To keep the site and our systems secure</strong> — our legitimate use in preventing abuse, fraud, and misuse of the contact endpoint.</>,
+                            <><strong>To meet legal, tax, and accounting obligations</strong> — required by Indian law.</>,
+                        ]}
+                    />
+                    <p>
+                        We use personal data only for the purpose it was collected for. We do not sell personal data,
+                        and we do not use client or enquiry data to train machine-learning models.
+                    </p>
+                </LegalSection>
+
+                <LegalSection id="sub-processors" heading="5. Sub-processors and third parties">
+                    <p>
+                        These are the third parties that may process personal data on our behalf. We disclose them
+                        because any serious buyer will ask, and because you are entitled to know who touches your data.
+                    </p>
+                    <div className="overflow-x-auto">
+                        <table className="w-full text-sm border-collapse">
+                            <thead>
+                                <tr className="border-b border-border text-left">
+                                    <th scope="col" className="py-2 pr-4 font-display text-foreground">Sub-processor</th>
+                                    <th scope="col" className="py-2 pr-4 font-display text-foreground">Purpose</th>
+                                    <th scope="col" className="py-2 font-display text-foreground">Processing location</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {subProcessors.map((p) => (
+                                    <tr key={p.name} className="border-b border-border/60 align-top">
+                                        <td className="py-3 pr-4 text-foreground">{p.name}</td>
+                                        <td className="py-3 pr-4">{p.purpose}</td>
+                                        <td className="py-3">{p.location}</td>
+                                    </tr>
                                 ))}
-                            </ul>
-                        </section>
-
-                        {/* How We Use Data */}
-                        <section className="glass-card p-8 rounded-2xl border-l-4 border-l-accent">
-                            <div className="flex items-center gap-3 mb-4">
-                                <ShieldCheck className="w-5 h-5 text-accent" />
-                                <h2 className="text-2xl font-semibold">How we use data</h2>
-                            </div>
-                            <p className="text-muted leading-relaxed">
-                                Data is used solely to provide automation services and respond to inquiries. We use this information to maintain
-                                the integrity of our workflows and ensure your business processes run smoothly.
-                            </p>
-                        </section>
-
-                        {/* Data Sharing */}
-                        <section className="glass-card p-8 rounded-2xl">
-                            <h2 className="text-2xl font-semibold mb-4">Data sharing</h2>
-                            <p className="text-muted leading-relaxed">
-                                We do not sell or share user data with third parties except when required to operate services such as WhatsApp Business APIs.
-                                Your data remains within the systems necessary for the automation to function as intended.
-                            </p>
-                        </section>
-
-                        {/* Data Deletion & Contact */}
-                        <div className="grid md:grid-cols-2 gap-8">
-                            <section className="glass-card p-8 rounded-2xl group hover:border-accent/40 transition-colors">
-                                <div className="flex items-center gap-3 mb-4">
-                                    <Trash2 className="w-5 h-5 text-accent" />
-                                    <h2 className="text-2xl font-semibold">Data deletion</h2>
-                                </div>
-                                <p className="text-muted mb-6">
-                                    Users may request deletion of their data at any time.
-                                </p>
-                                <a
-                                    href="mailto:avlokaibusiness@gmail.com"
-                                    className="inline-flex items-center gap-2 text-accent font-medium hover:underline"
-                                >
-                                    Contact Support <ArrowLeft className="w-4 h-4 rotate-180" />
-                                </a>
-                            </section>
-
-                            <section className="glass-card p-8 rounded-2xl flex flex-col justify-center items-center text-center">
-                                <h2 className="text-2xl font-semibold mb-4">Contact</h2>
-                                <Mail className="w-8 h-8 text-accent mb-4" />
-                                <a
-                                    href="mailto:avlokaibusiness@gmail.com"
-                                    className="text-xl font-bold hover:text-accent transition-colors"
-                                >
-                                    avlokaibusiness@gmail.com
-                                </a>
-                            </section>
-                        </div>
+                            </tbody>
+                        </table>
                     </div>
+                    <p>{SUBPROCESSOR_NOTE}</p>
+                    <p>
+                        We also disclose personal data where we are legally required to — to a court, regulator, or law
+                        enforcement agency acting under valid authority — and to professional advisers under a duty of
+                        confidence. If our business is transferred, personal data may transfer with it, and you will be
+                        told before that takes effect.
+                    </p>
+                </LegalSection>
 
-                    <footer className="mt-20 pt-8 border-t border-border flex justify-between items-center">
-                        <p className="text-sm text-muted">
-                            © {new Date().getFullYear()} AvlokAI. All rights reserved.
-                        </p>
-                        <div className="w-8 h-8 rounded-lg glass-card flex items-center justify-center opacity-50">
-                            <Shield className="w-4 h-4" />
-                        </div>
-                    </footer>
-                </motion.div>
-            </div>
-        </main>
+                <LegalSection id="transfers" heading="6. Cross-border transfers">
+                    <p>
+                        Several sub-processors listed above process data outside India, principally in the United States
+                        and the European Union. Where personal data leaves India, we transfer it only to recipients bound
+                        by contractual data-protection commitments, and only to countries not restricted by the Central
+                        Government under section 16 of the Digital Personal Data Protection Act 2023.
+                    </p>
+                    <p>
+                        Where a client requires that data stay within India, we can build to that constraint — say so at
+                        scoping, because it changes which model providers and hosting options are available.
+                    </p>
+                </LegalSection>
+
+                <LegalSection id="retention" heading="7. How long we keep it">
+                    <LegalList
+                        items={[
+                            'Enquiries that do not become projects: 24 months from last contact, then deleted.',
+                            'Project and client records: for the duration of the engagement and 8 years afterwards, to meet Indian tax and accounting record-keeping requirements.',
+                            'Data processed on a client’s behalf: as specified in that engagement’s data-processing agreement, and returned or deleted within 30 days of the engagement ending unless the client instructs otherwise.',
+                            'Website and abuse-prevention logs: 90 days.',
+                        ]}
+                    />
+                </LegalSection>
+
+                <LegalSection id="security" heading="8. Security safeguards">
+                    <LegalList
+                        items={[
+                            'Access to client systems is scoped to the minimum a workflow requires, and reviewed at handover.',
+                            'Credentials are held in a secrets manager, never in workflow definitions, source code, or chat.',
+                            'Multi-factor authentication is enforced on our email, cloud, and workflow accounts.',
+                            'Data in transit is encrypted with TLS; data at rest is encrypted by the underlying cloud services.',
+                            'Access is logged, and logs are retained long enough to reconstruct what a workflow did.',
+                            'No security programme is perfect. If something happens, section 10 says what we do about it.',
+                        ]}
+                    />
+                </LegalSection>
+
+                <LegalSection id="your-rights" heading="9. Your rights">
+                    <p>Under the Digital Personal Data Protection Act 2023 and applicable law, you may:</p>
+                    <LegalList
+                        items={[
+                            'Ask for a summary of the personal data we hold about you and how it is being processed',
+                            'Ask us to correct or complete inaccurate or incomplete data',
+                            'Ask us to erase your data where we no longer need it for the purpose it was collected for',
+                            'Withdraw consent you previously gave, without affecting processing already carried out',
+                            'Nominate another person to exercise these rights on your behalf if you are incapacitated or deceased',
+                            'Raise a grievance with us, and escalate to the Data Protection Board of India if we do not resolve it',
+                        ]}
+                    />
+                    <p>
+                        To exercise any of these, email{' '}
+                        <a href={`mailto:${company.grievanceOfficer.email}`}>{company.grievanceOfficer.email}</a> from
+                        the address you contacted us from, or follow the steps on our{' '}
+                        <Link href="/data-delete">data deletion page</Link>. We may ask you to verify your identity before
+                        acting, and we respond within 30 days. There is no fee.
+                    </p>
+                    <p>
+                        Where we hold data as a processor on a client&rsquo;s behalf, we will forward your request to that
+                        client, who is the fiduciary for it, and tell you we have done so.
+                    </p>
+                </LegalSection>
+
+                <LegalSection id="grievance" heading="10. Grievance Officer and breach notification">
+                    <p>
+                        In accordance with the Digital Personal Data Protection Act 2023 and the Information Technology
+                        (Intermediary Guidelines and Digital Media Ethics Code) Rules 2021, our Grievance Officer is:
+                    </p>
+                    <LegalList
+                        items={[
+                            <><strong>{company.grievanceOfficer.name}</strong>, {company.grievanceOfficer.title}</>,
+                            <>Email: <a href={`mailto:${company.grievanceOfficer.email}`}>{company.grievanceOfficer.email}</a></>,
+                            <>Address: {addressLine}</>,
+                        ]}
+                    />
+                    <p>
+                        Grievances are acknowledged within 24 hours and resolved within 15 days. If you are not satisfied
+                        with the outcome, you may complain to the Data Protection Board of India.
+                    </p>
+                    <p>
+                        In the event of a personal data breach, we notify the Data Protection Board of India and every
+                        affected person without undue delay, describing what happened, what data was involved, what we
+                        are doing about it, and what you should do. Where an engagement makes us a processor, we notify
+                        the client without undue delay so they can meet their own notification duties, including the
+                        60-day requirement that applies to US covered entities under HIPAA where a Business Associate
+                        Agreement is in place.
+                    </p>
+                </LegalSection>
+
+                <LegalSection id="children" heading="11. Children's data">
+                    <p>
+                        Our services are for businesses. We do not knowingly collect personal data from anyone under 18,
+                        and we do not carry out behavioural advertising or tracking directed at children. If you believe a
+                        child has given us personal data, contact the Grievance Officer and we will delete it.
+                    </p>
+                </LegalSection>
+
+                <LegalSection id="changes" heading="12. Changes to this policy">
+                    <p>
+                        We update this policy when our processing changes — a new sub-processor, a new purpose, a new
+                        retention period. The effective date at the top always reflects the current version. Material
+                        changes affecting existing clients are notified by email before they take effect.
+                    </p>
+                </LegalSection>
+
+                <LegalSection id="contact" heading="13. Contact">
+                    <p>
+                        Questions about this policy: <a href={`mailto:${company.email}`}>{company.email}</a>. Privacy
+                        requests and grievances:{' '}
+                        <a href={`mailto:${company.grievanceOfficer.email}`}>{company.grievanceOfficer.email}</a>.
+                    </p>
+                </LegalSection>
+            </LegalLayout>
+        </>
     )
 }

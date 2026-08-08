@@ -30,6 +30,15 @@
 
 html {
     color-scheme: light dark;
+    /* Anchor targets clear the 4rem fixed header instead of hiding under it. */
+    scroll-padding-top: 4.5rem;
+    scroll-behavior: smooth;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    html {
+        scroll-behavior: auto;
+    }
 }
 
 * {
@@ -135,6 +144,15 @@ body {
     background: var(--card);
     border: 1px solid var(--border);
     border-radius: 8px;
+}
+
+/* Collapsible content (FAQ, industry detail) — answers stay in the HTML. */
+summary {
+    cursor: pointer;
+}
+
+summary::-webkit-details-marker {
+    display: none;
 }
 
 /* Focus states */

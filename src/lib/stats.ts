@@ -1,9 +1,18 @@
-export interface Stat { value: number; suffix: string; label: string }
+export interface ProofPoint {
+    /** Rendered verbatim in static HTML — no count-up, nothing that starts at zero. */
+    value: string
+    label: string
+}
 
-// PLACEHOLDER metrics — replace with real numbers before launch.
-export const stats: Stat[] = [
-    { value: 40, suffix: '+', label: 'automations shipped' },
-    { value: 12000, suffix: '+', label: 'hours saved' },
-    { value: 6, suffix: '', label: 'industries served' },
-    { value: 99, suffix: '%', label: 'uptime' },
+/**
+ * These are operating facts, not performance metrics. Unsubstantiated outcome
+ * numbers ("40+ automations shipped", "99% uptime") were removed: the uptime
+ * figure directly contradicted the availability disclaimer in the Terms of
+ * Service, and none of them could be evidenced on request.
+ */
+export const proofPoints: readonly ProofPoint[] = [
+    { value: '2–6 wk', label: 'typical time to first workflow live' },
+    { value: 'Fixed price', label: 'quoted against a written scope' },
+    { value: 'Your cloud', label: 'deployed to your accounts and API keys' },
+    { value: 'Security-led', label: 'built by a VAPT and forensics team' },
 ]
