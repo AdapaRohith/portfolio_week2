@@ -18,9 +18,17 @@ export default function manifest(): MetadataRoute.Manifest {
         theme_color: '#fafafa',
         lang: 'en-IN',
         categories: ['business', 'productivity'],
+        /**
+         * These declared sizes are now true. The previous entries claimed
+         * 512x512 and 180x180 but pointed at two copies of the same 500x500
+         * file, so both were lies and neither matched what a PWA installer
+         * asks for. The maskable variant carries a wider margin because Android
+         * crops it to a circle.
+         */
         icons: [
-            { src: '/AvlokAi.png', sizes: '512x512', type: 'image/png', purpose: 'any' },
-            { src: '/apple-touch-icon.png', sizes: '180x180', type: 'image/png' },
+            { src: '/icon-192.png', sizes: '192x192', type: 'image/png', purpose: 'any' },
+            { src: '/icon-512.png', sizes: '512x512', type: 'image/png', purpose: 'any' },
+            { src: '/icon-maskable-512.png', sizes: '512x512', type: 'image/png', purpose: 'maskable' },
         ],
     }
 }

@@ -33,9 +33,20 @@ export const metadata: Metadata = {
     publisher: 'AvlokAI',
     manifest: '/manifest.webmanifest',
     formatDetection: { telephone: false, address: false, email: false },
+    /**
+     * `/favicon.ico` is listed first and exists as a real file. Crawlers and link
+     * unfurlers request that path directly rather than parsing `<link rel=icon>`,
+     * and it used to 404 — which is why shared links rendered with a generic
+     * globe. The PNGs are cropped to the logo mark alone; the full lockup is
+     * mostly empty canvas with a near-white wordmark that vanished at 16px.
+     */
     icons: {
-        icon: '/AvlokAi.png',
-        apple: '/apple-touch-icon.png',
+        icon: [
+            { url: '/favicon.ico', sizes: '16x16 32x32 48x48' },
+            { url: '/favicon-32.png', type: 'image/png', sizes: '32x32' },
+            { url: '/icon-192.png', type: 'image/png', sizes: '192x192' },
+        ],
+        apple: [{ url: '/apple-touch-icon.png', type: 'image/png', sizes: '180x180' }],
     },
     robots: {
         index: true,
