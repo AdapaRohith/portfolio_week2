@@ -45,9 +45,9 @@ export const services: Service[] = [
         description:
             'Assistants that answer from your own documents, tickets, and databases — with citations back to the source, so answers can be checked.',
         highlights: ['Document ingestion', 'Vector search', 'Cited answers', 'Escalation to a human'],
-        metaTitle: 'RAG Chatbot Development | AvlokAI — Hyderabad',
+        metaTitle: 'RAG Chatbot Development in India | AvlokAI',
         metaDescription:
-            'RAG chatbot development for businesses in India: assistants grounded in your own documents and databases, with cited answers, access controls, and human escalation. Typical delivery 4–8 weeks.',
+            'RAG chatbots grounded in your own documents and databases — cited answers, role-scoped access, human escalation. Typical delivery 4–8 weeks, fixed price.',
         intro:
             'A retrieval-augmented assistant answers from a corpus you control rather than from a model’s memory. We ingest your documents, tickets, product data, or policy library, index them for retrieval, and wire an assistant that quotes the passage it answered from. When it cannot find a grounded answer, it says so and hands the conversation to a person instead of inventing one.',
         deliverables: [
@@ -82,9 +82,9 @@ export const services: Service[] = [
         description:
             'The routing, syncing, and follow-up work your team currently does by hand between CRM, inbox, sheets, and billing.',
         highlights: ['CRM sync', 'Lead routing', 'Invoice reconciliation', 'Daily digests'],
-        metaTitle: 'CRM & n8n Workflow Automation | AvlokAI — Hyderabad',
+        metaTitle: 'CRM & n8n Workflow Automation | AvlokAI',
         metaDescription:
-            'n8n automation agency work for Indian businesses: CRM sync, lead routing, invoice reconciliation, and reporting workflows built in your own accounts and handed over documented.',
+            'n8n automation for Indian businesses: CRM sync, lead routing, invoice reconciliation, and reporting — built in your own accounts and handed over documented.',
         intro:
             'Most operational drag is not a missing feature — it is a person copying a field from one system into another. We map the sequence you already run, rebuild it as an orchestrated workflow in n8n, and connect it to the CRM and tools you already pay for. The workflows live in your accounts, and you get the definitions and a runbook at handover.',
         deliverables: [
@@ -119,9 +119,9 @@ export const services: Service[] = [
         description:
             'Official WhatsApp Business Platform workflows — follow-up, reminders, and support — with opt-in and opt-out handled properly.',
         highlights: ['Official Cloud API', 'Opt-in capture', 'Template management', 'Opt-out handling'],
-        metaTitle: 'WhatsApp Automation for Business in India | AvlokAI',
+        metaTitle: 'WhatsApp Business Automation India | AvlokAI',
         metaDescription:
-            'WhatsApp automation India: lead follow-up, appointment reminders, and support flows on the official WhatsApp Business Platform, with documented opt-in, approved templates, and opt-out handling.',
+            'WhatsApp automation on the official Business Platform: lead follow-up, reminders, and support flows with documented opt-in, approved templates, and opt-out.',
         intro:
             'WhatsApp is where most Indian businesses already talk to customers, and it is also where the compliance mistakes are. We build on the official WhatsApp Business Platform (Cloud API) only. That means documented opt-in for every recipient, pre-approved message templates for anything business-initiated, and a working opt-out path — the things that keep a number from being permanently banned.',
         deliverables: [
@@ -154,9 +154,9 @@ export const services: Service[] = [
         description:
             'Every enquiry from every channel landing in one place, qualified against your criteria, routed to the right person within minutes.',
         highlights: ['Multi-channel capture', 'Deduplication', 'Qualification scoring', 'Instant routing'],
-        metaTitle: 'Lead Generation & Qualification Automation | AvlokAI',
+        metaTitle: 'Lead Capture & Qualification Automation | AvlokAI',
         metaDescription:
-            'Lead automation for Indian businesses: capture from portals, ads, WhatsApp, and phone into one pipeline, deduplicated, qualified against your criteria, and routed within minutes.',
+            'Capture leads from portals, ads, WhatsApp, and phone into one pipeline — deduplicated, qualified against your criteria, and routed to a person in minutes.',
         intro:
             'Leads arrive from portals, ad forms, WhatsApp, and phone calls, and they leak in the gaps between them. We consolidate every channel into one pipeline, deduplicate against existing records, qualify against the criteria your sales team actually uses, and route with a response-time target you set.',
         deliverables: [
@@ -187,9 +187,9 @@ export const services: Service[] = [
         description:
             'Extraction, checking, and filing of the documents that move through your operation — invoices, POs, forms, claims paperwork.',
         highlights: ['Structured extraction', 'Validation rules', 'Exception queues', 'System-of-record filing'],
-        metaTitle: 'Document Processing & Back-Office Automation | AvlokAI',
+        metaTitle: 'Document Processing Automation | AvlokAI',
         metaDescription:
-            'Automated document processing for Indian businesses: extract structured data from invoices, purchase orders, and forms, validate against your rules, and file into your system of record with a human exception queue.',
+            'Extract structured data from invoices, purchase orders, and forms, validate it against your rules, and file it — with a human queue for the exceptions.',
         intro:
             'Document work is repetitive but not risk-free, so we build it with the exception path first. Documents are parsed into structured fields, checked against your validation rules, and filed into your system of record. Anything that fails a check goes to a human queue with the reason attached — nothing is silently guessed.',
         deliverables: [
@@ -220,9 +220,9 @@ export const services: Service[] = [
         description:
             'A security review of the automations you already run — credential scope, data flow, prompt-injection exposure, and logging.',
         highlights: ['Credential scoping', 'Data-flow mapping', 'Prompt-injection testing', 'Logging review'],
-        metaTitle: 'AI Automation Security Review | AvlokAI — Hyderabad',
+        metaTitle: 'AI Automation Security Review | AvlokAI',
         metaDescription:
-            'Security review of existing AI and n8n automations: over-scoped credentials, data flow to third-party APIs, prompt-injection exposure, and audit logging — by a team from a VAPT and digital-forensics background.',
+            'Security review of AI and n8n automations you already run: over-scoped credentials, third-party data flow, prompt-injection exposure, and audit logging.',
         intro:
             'Automations accumulate access. A workflow built for one job ends up holding an admin token, piping customer records to a third-party API nobody documented, and logging nothing useful when it misfires. Our founding team comes from vulnerability assessment and penetration testing and digital forensics, so this is the review we would want run against our own builds.',
         deliverables: [

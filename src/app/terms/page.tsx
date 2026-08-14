@@ -8,7 +8,7 @@ import { company, addressLine } from '@/lib/company'
 export const metadata = pageMetadata({
     title: 'Terms of Service | AvlokAI',
     description:
-        'AvlokAI’s terms of service: scope and change control, payment milestones, IP ownership of deliverables, warranties, limitation of liability, data protection, termination, and governing law (Hyderabad, Telangana).',
+        'AvlokAI’s terms: scope and change control, payment milestones, IP ownership on payment, liability cap, termination, and governing law in Hyderabad, Telangana.',
     path: '/terms',
 })
 

@@ -8,10 +8,17 @@ import { services } from '@/lib/services'
 import { company, addressLine } from '@/lib/company'
 import type { FaqItem } from '@/lib/faq'
 
+/**
+ * Title takes the transactional "hire" variant deliberately. This page and the
+ * homepage were both titled "AI Automation Agency in Hyderabad" and both
+ * described the same offer, so they competed for one query and Google had to
+ * pick between them. The homepage now leads with the brand; this one owns the
+ * commercial-intent phrasing.
+ */
 export const metadata = pageMetadata({
-    title: 'AI Automation Agency in Hyderabad | AvlokAI',
+    title: 'Hire an AI Automation Agency in Hyderabad | AvlokAI',
     description:
-        'AvlokAI is an AI automation agency based in Hyderabad, Telangana. RAG chatbots, n8n and CRM workflow automation, and official WhatsApp Business automation — fixed price, 2 to 6 weeks, deployed to your own cloud accounts.',
+        'AI automation agency in Hyderabad: RAG chatbots, n8n and CRM workflows, official WhatsApp automation. Fixed price, 2–6 weeks, built in your own cloud.',
     path: '/ai-automation-agency-hyderabad',
 })
 
@@ -51,7 +58,7 @@ export default function HyderabadPage() {
                         { name: 'Home', path: '/' },
                         { name: 'AI Automation Agency in Hyderabad', path: '/ai-automation-agency-hyderabad' },
                     ]),
-                    faqSchema(localFaqs),
+                    faqSchema(localFaqs, '/ai-automation-agency-hyderabad'),
                 ]}
             />
             <div className="max-w-4xl mx-auto">

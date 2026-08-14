@@ -13,7 +13,7 @@ import { company, addressLine } from '@/lib/company'
 export const metadata = pageMetadata({
     title: 'Data Deletion Request | AvlokAI',
     description:
-        'How to request deletion of personal data held by AvlokAI: what to send, how we verify it, what gets deleted, what we are legally required to retain, and our response timeline.',
+        'Request deletion of personal data held by AvlokAI: what to send, how we verify it, what is deleted, what we must retain by law, and our response timeline.',
     path: '/data-delete',
 })
 

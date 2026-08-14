@@ -17,17 +17,22 @@ import { faqSchema } from '@/lib/schema'
  * buttons could scroll-into-view; those are now real links, which also means
  * the whole page renders in static HTML.
  */
+/**
+ * Brand-led title. The old one ran 84 characters and duplicated the phrasing on
+ * /ai-automation-agency-hyderabad; leading with the brand also helps separate
+ * "AvlokAI" from the unrelated "Avlok" entity that owns the token in search.
+ */
 export const metadata = pageMetadata({
-    title: 'AvlokAI — AI Automation Agency in Hyderabad | RAG Chatbots, CRM & WhatsApp Workflows',
+    title: 'AvlokAI — AI Automation Agency in Hyderabad',
     description:
-        'AvlokAI builds RAG chatbots, CRM and n8n workflow automation, and official WhatsApp Business Platform flows for businesses in Hyderabad and across India. Fixed-price, deployed to your own cloud, documented at handover.',
+        'RAG chatbots, CRM and n8n workflow automation, and official WhatsApp flows for businesses across India — fixed price, built in your own cloud accounts.',
     path: '/',
 })
 
 export default function Home() {
     return (
         <main className="relative">
-            <JsonLd data={faqSchema(faqs)} />
+            <JsonLd data={faqSchema(faqs, '/')} />
             <AutomationFlowHero />
             <StatsBand />
             <ServicesBento />

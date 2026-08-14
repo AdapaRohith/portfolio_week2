@@ -9,7 +9,7 @@ import { subProcessors, SUBPROCESSOR_NOTE } from '@/lib/subprocessors'
 export const metadata = pageMetadata({
     title: 'Privacy Policy | AvlokAI',
     description:
-        'How AvlokAI collects, uses, shares, and retains personal data — including our sub-processor list, cross-border transfer disclosure, your rights under India’s DPDP Act 2023, and our Grievance Officer contact.',
+        'How AvlokAI collects, shares, and retains personal data: sub-processor list, cross-border transfers, your DPDP Act 2023 rights, and Grievance Officer contact.',
     path: '/privacy',
 })
 

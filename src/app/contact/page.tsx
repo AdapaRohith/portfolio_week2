@@ -7,7 +7,7 @@ import { breadcrumbSchema } from '@/lib/schema'
 import { company, addressLine } from '@/lib/company'
 
 export const metadata = pageMetadata({
-    title: 'Contact AvlokAI — AI Automation Agency in Hyderabad',
+    title: 'Contact AvlokAI — AI Automation, Hyderabad',
     description:
         'Tell us what workflow you are trying to fix. We reply within one working day with next steps, and scope in writing before any build begins.',
     path: '/contact',

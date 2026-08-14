@@ -6,9 +6,9 @@ import { pageMetadata } from '@/lib/seo'
 import { breadcrumbSchema, serviceSchema } from '@/lib/schema'
 
 export const metadata = pageMetadata({
-    title: 'AI Automation Services | AvlokAI — Hyderabad',
+    title: 'AI Automation Services in Hyderabad | AvlokAI',
     description:
-        'RAG chatbots, CRM and n8n workflow automation, official WhatsApp Business automation, lead qualification, document processing, and security reviews of existing automations.',
+        'Six services: RAG chatbots, CRM and n8n workflows, WhatsApp automation, lead qualification, document processing, and reviews of automations you already run.',
     path: '/services',
 })
 

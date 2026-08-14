@@ -6,9 +6,9 @@ import { pageMetadata } from '@/lib/seo'
 import { breadcrumbSchema } from '@/lib/schema'
 
 export const metadata = pageMetadata({
-    title: 'Industries We Work With | AvlokAI — Hyderabad',
+    title: 'Industries We Automate | AvlokAI Hyderabad',
     description:
-        'How AvlokAI applies workflow automation, RAG assistants, and WhatsApp automation in IT services, e-commerce, real estate, manufacturing operations, healthcare admin, and small business.',
+        'Where our automation work lands: IT services, e-commerce, real estate, manufacturing operations, healthcare admin, and small business — with the caveats stated.',
     path: '/industries',
 })
 

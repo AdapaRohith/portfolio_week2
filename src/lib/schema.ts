@@ -36,6 +36,22 @@ export const organizationSchema = () => ({
     ],
     foundingDate: company.foundingDate,
     sameAs: [...company.sameAs],
+    /**
+     * Google's Rich Results Test warns when a LocalBusiness subtype omits
+     * `priceRange`. `$$` is the honest bucket for fixed-price project work with
+     * no published rate card — see the pricing line in `public/llms.txt`.
+     */
+    priceRange: '$$',
+    currenciesAccepted: 'INR',
+    openingHoursSpecification: [
+        {
+            '@type': 'OpeningHoursSpecification',
+            dayOfWeek: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'],
+            opens: '09:30',
+            closes: '18:30',
+        },
+    ],
+    knowsLanguage: ['en', 'hi', 'te'],
     ...(company.gstin || company.cin
         ? {
               identifier: [
@@ -81,6 +97,7 @@ export const websiteSchema = () => ({
     '@id': url('/#website'),
     url: url('/'),
     name: company.name,
+    inLanguage: 'en-IN',
     publisher: { '@id': url('/#organization') },
 })
 
@@ -107,9 +124,17 @@ export const serviceSchema = (service: Service) => ({
     },
 })
 
-export const faqSchema = (items: readonly FaqItem[]) => ({
+/**
+ * `path` gives the node a stable `@id`. Two pages carry an FAQPage block, and
+ * without an identifier they were anonymous nodes that could not be referenced
+ * or told apart in the graph.
+ */
+export const faqSchema = (items: readonly FaqItem[], path = '/') => ({
     '@context': 'https://schema.org',
     '@type': 'FAQPage',
+    '@id': `${url(path)}#faq`,
+    inLanguage: 'en-IN',
+    isPartOf: { '@id': url('/#website') },
     mainEntity: items.map((item) => ({
         '@type': 'Question',
         name: item.question,

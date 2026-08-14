@@ -1,4 +1,19 @@
+import type { Metadata } from 'next'
 import Link from 'next/link'
+
+/**
+ * Its own title and description. Without these the 404 inherited the homepage's
+ * verbatim — and, until the root canonical was removed, a `rel=canonical`
+ * pointing at the homepage too, on a 404 response.
+ *
+ * No `alternates`: a 404 should assert no canonical URL at all.
+ */
+export const metadata: Metadata = {
+    // `absolute`, or the root layout's '%s | AvlokAI' template appends a second brand.
+    title: { absolute: 'Page not found | AvlokAI' },
+    description: 'This URL does not exist on avlokai.com.',
+    robots: { index: false, follow: true },
+}
 
 export default function NotFound() {
     return (

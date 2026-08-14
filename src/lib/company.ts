@@ -8,7 +8,16 @@
  * until they are filled in, so the site never shows a placeholder.
  */
 
-/** Canonical host. The server 301s apex -> www, so www is canonical. */
+/**
+ * Canonical host.
+ *
+ * Note: the apex currently answers with a **307**, not a 301 — verified with
+ * `curl -sI https://avlokai.com/`. A temporary redirect does not consolidate
+ * link equity onto www and leaves Google re-crawling the apex indefinitely. The
+ * redirect is configured at the Vercel edge (Settings -> Domains), before
+ * Next.js runs, so `next.config.js` cannot change it. It needs to be switched to
+ * a permanent (308) redirect in the dashboard.
+ */
 export const SITE_URL = 'https://www.avlokai.com'
 
 export const url = (path = '/') => new URL(path, SITE_URL).toString()
